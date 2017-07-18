@@ -14,13 +14,16 @@
 * has_many: comments
 
 ## recipes table
-| Column     | Type    | Options                 |
-|:-----------|:--------|:-----------------------:|
-| title      | string  | index: true, null: false|
-| catch_copy | text    | null: false             |
-| image      | string  |                         |
-| point      | text    | null: false             |
-| background | text    | null: false             |
+| Column      | Type    | Options                 |
+|:------------|:--------|:-----------------------:|
+| title       | string  | index: true, null: false|
+| catch_copy  | text    | null: false             |
+| image       | string  |                         |
+| point       | text    | null: false             |
+| background  | text    | null: false             |
+| user_id     | integer | foreign_key: true       |
+| myfolder_id | integer | foreign_key: true       |
+
 
 ### Association
 * belongs_to: user
