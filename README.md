@@ -1,5 +1,3 @@
-== README
-
 # DB設計
 
 ## users table
@@ -9,9 +7,11 @@
 | mail   | string  | null:false, unique: true  |
 
 ### Association
-* has_many: rexipes
-* has_many: 
-* has_many: 
+* has_many: recipes
+* has_one: myfolder
+* has_many: histories
+* has_many: kondates
+* has_many: comments
 
 ## recipes table
 | Column     | Type    | Options                 |
@@ -27,7 +27,7 @@
 * has_many: materials
 * has_many: cooking_methods
 * belongs_to: myfolder
-* has_many: 
+* has_many: comments
 
 ## materials table
 | Column    | Type    | Options           |
@@ -99,4 +99,14 @@
 | search_num | integer | null: false       |
 
 ### Association
+
+
+## histories table
+| Column     | Type    | Options           |
+|:-----------|--------:|:-----------------:|
+| user_id    | integer | null: false       |
+| recipe_id  | integer | null: false       |
+
+### Association
+* belongs_to: user
 
