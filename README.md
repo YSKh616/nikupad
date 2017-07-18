@@ -2,7 +2,7 @@
 
 ## users table
 | Column | Type    | Options                   |
-|:-------|--------:|:-------------------------:|
+|:-------|:--------|:-------------------------:|
 | name   | string  | index: true, null: false  |
 | mail   | string  | null:false, unique: true  |
 
@@ -15,7 +15,7 @@
 
 ## recipes table
 | Column     | Type    | Options                 |
-|:-----------|--------:|:-----------------------:|
+|:-----------|:--------|:-----------------------:|
 | title      | string  | index: true, null: false|
 | catch_copy | text    | null: false             |
 | image      | string  |                         |
@@ -28,10 +28,11 @@
 * has_many: cooking_methods
 * belongs_to: myfolder
 * has_many: comments
+* has_many: tsukurepos
 
 ## materials table
 | Column    | Type    | Options           |
-|:----------|--------:|:-----------------:|
+|:----------|:--------|:-----------------:|
 | name      | string  | null: false       |
 | quantity  | string  | null: false       |
 | recipe_id | integer | foreign_key: true |
@@ -41,7 +42,7 @@
 
 ## cooking_methods table
 | Column    | Type    | Options           |
-|:----------|--------:|:-----------------:|
+|:----------|:--------|:-----------------:|
 | body      | text    | null: false       |
 | num       | integer | null: false       |
 | recipe_id | integer | foreign_key: true |
@@ -52,7 +53,7 @@
 
 ## comments table
 | Column    | Type    | Options           |
-|:----------|--------:|:-----------------:|
+|:----------|:--------|:-----------------:|
 | body      | text    | null: false       |
 | user_id   | integer | foreign_key: true |
 | recipe_id | integer | foreign_key: true |
@@ -63,7 +64,7 @@
 
 ## myfolders table
 | Column    | Type    | Options           |
-|:----------|--------:|:-----------------:|
+|:----------|:--------|:-----------------:|
 | user_id   | integer | foreign_key: true |
 | recipe_id | integer | foreign_key: true |
 
@@ -73,7 +74,7 @@
 
 ## kondates table
 | Column     | Type    | Options                 |
-|:-----------|--------:|:-----------------------:|
+|:-----------|:--------|:-----------------------:|
 | title      | string  | index: true, null: false|
 | knack      | text    | null: false             |
 | image      | string  |                         |
@@ -85,7 +86,7 @@
 
 ## tags table
 | Column        | Type    | Options           |
-|:--------------|--------:|:-----------------:|
+|:--------------|:--------|:-----------------:|
 | myfolder_id   | integer | foreign_key: true |
 | name          | string  | null: false       |
 
@@ -94,7 +95,7 @@
 
 ## keywords table
 | Column     | Type    | Options           |
-|:-----------|--------:|:-----------------:|
+|:-----------|:--------|:-----------------:|
 | word       | string  | null: false       |
 | search_num | integer | null: false       |
 
@@ -103,10 +104,21 @@
 
 ## histories table
 | Column     | Type    | Options           |
-|:-----------|--------:|:-----------------:|
+|:-----------|:--------|:-----------------:|
 | user_id    | integer | null: false       |
 | recipe_id  | integer | null: false       |
 
 ### Association
 * belongs_to: user
+
+## tsukurepos table
+| Column    | Type    | Options           |
+|:----------|:--------|:-----------------:|
+| text      | text    | null: false       |
+| image     | string  |                   |
+| iine      | integer | null: false       |
+| recipe_id | integer | null: false       |
+
+### Association
+* belongs_to: recipe
 
