@@ -1,0 +1,134 @@
+.head-wrapper {
+  width: calc(100% - 190px);
+  @include clearfix;
+  background-color: white;
+  .header {
+    width: 970px;
+    margin: 0 auto;
+    text-align: left;
+    &__service {
+      float: left;
+      color: #986f4e;
+    }
+    &__right {
+      &--menulist {
+        list-style-type: none;
+        text-align: left;
+        float: right;
+        &--premium {
+          text-align: right;
+          display: inline-block;
+          color: #ff8c1a;
+        }
+        &--user {
+          text-align: right;
+          display: inline-block;
+          color: #330000;
+        }
+        &--setting {
+          text-align: right;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.covered {
+  width: calc(100% - 190px);
+  background-color: #f7f3e8;
+  float: left;
+
+  .upper {
+    clear: both;
+    height: 82px;
+  }
+
+
+
+  .footer {
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, helvetica, sans-serif;
+    line-height: 1.5;
+    color: #3c3c3c;
+    display: flex;
+    justify-content: space-between;
+    width: 970px;
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+    text-align: left;
+    background-color: #f7f3e8;
+    h5 { margin:0; }
+    ul {
+      margin:0px;
+      padding:0px;
+      margin-bottom: 20px;
+      li {
+        font-size: 12.04px;
+        list-style: none;
+        line-height: 18.06px;
+        // margin: 0;
+        // padding: 0;
+        // list-style-position:outside;
+      }
+    }
+    &__search-recipe {
+      // padding-left: 10px;
+    }
+    &__write-recipe-kondate {
+    }
+    &__cooking-class {
+      // display: table-cell;
+    }
+    &__recommended-premium {
+      // float: left;
+      // display: table-cell;
+    }
+    &__my-page-life {
+      // padding-right: 10px;
+    }
+  }
+
+  .copyright {
+    width: 970px;
+    margin: 0 auto;
+    h5 { margin:0; }
+    ul {
+      margin: 0px;
+      padding: 0px;
+      li {
+        font-size: 12.04px;
+        list-style: none;
+        line-height: 18.06px;
+        display: inline-block;
+        // margin: 0;
+        // padding: 0;
+        // list-style-position:outside;
+      }
+    }
+    &__sentence {
+      font-size: 80%;
+    }
+  }
+}
+
+.sidebar {
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, helvetica, sans-serif;
+  float: right;
+  width: 190px;
+  height: 100%;
+  background-color: red;
+  border-bottom: 1px solid #e3dcca;
+  &__title {
+    padding: 3px 5px 0px;
+    text-align: left;
+    margin: 0;
+    background: #efe1be;
+    height: 23px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+}
+
+
+
+
