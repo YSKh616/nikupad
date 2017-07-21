@@ -1,9 +1,12 @@
 %div.head-wrapper
   %div.header
     %div.header__service
-      %p サービス一覧
+      %span サービス一覧
     %div.header__right
-      %ul.header__right--menulist
-        %li.header__right--menulist--premium プレミアムサービス
-        %li.header__right--menulist--user クックOUFVYS☆
-        %li.header__right--menulist--setting 設定
+      %div.header__right--menulist
+        %div.header__right--menulist--premium プレミアムサービス
+        %div.header__right--menulist--user
+          = image_tag("profile.png",:width => "24",:height => "24",:alt => "profile")
+          %div.header__right--menulist--user--name クックOUFVYS☆
+        %div.header__right--menulist--setting
+          = image_tag("setting.png",:width => "24",:height => "24",:alt => "setting")

@@ -1,9 +1,26 @@
 = render 'header'
 %div.covered
   %div.upper
+    %div.upper__logo
+      = image_tag("logo.png",:width => "264",:height => "54",:alt => "logo")
+      %span.upper__logo--num 271万
+    %div.upper__form-cooking
+      = form_tag do
+        = text_field_tag :text, nil, placeholder:"料理名・食材名", class: "cooking_form"
+        = image_tag("cross.png",:width => "12",:height => "11",:alt => "cross")
+        = text_field_tag :text, nil, placeholder:"目的・用途", class: "purpose"
+        = submit_tag "レシピ検索", class: "search-button"
+    %div.upper__myfolder
+      = image_tag("folder.png",:width => "36",:height => "36",:alt => "folder")
+      %div.upper__myfolder--name MYフォルダ
+    %div.upper__mynews
+      = image_tag("mynews.png",:width => "36",:height => "36",:alt => "folder")
+      %div.upper__mynews--name MYニュース
+    %div.upper__write-recipe
+      = submit_tag "レシピを書く", class: "recipe-button"
   %div.contents
     %div.mainmenu
-      %div.mainmenu__recipe-relation-service
+      %div.mainmenu__recipe
       %div.mainmenu__premium-service
       %div.mainmenu__life-relation-service
       %div.mainmenu__today

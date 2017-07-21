@@ -2,28 +2,50 @@
   width: calc(100% - 190px);
   @include clearfix;
   background-color: white;
+  height: 35px;
+  margin:0;
   .header {
     width: 970px;
     margin: 0 auto;
-    text-align: left;
     &__service {
+      padding-top: 12px;
       float: left;
+      text-align: left;
       color: #986f4e;
+      font-size: 13px;
     }
     &__right {
+      // clear: both;
+      display: flex;
+      // display: inline;
+      // background-color: blue;
+      // text-align: right;
+      float: right;
+      margin: 0;
+      padding: 0;
       &--menulist {
+        // border: 1px solid red;
         list-style-type: none;
-        text-align: left;
-        float: right;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 1px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-top: 6px;
         &--premium {
           text-align: right;
           display: inline-block;
           color: #ff8c1a;
+          margin: 0;
         }
         &--user {
-          text-align: right;
           display: inline-block;
           color: #330000;
+          &--name {
+            display: inline-block;
+            padding-left: 5px;
+            text-align: right;
+          }
         }
         &--setting {
           text-align: right;
@@ -40,13 +62,112 @@
   float: left;
 
   .upper {
+    // border: 1px solid red;
+    margin: 0 auto;
     clear: both;
-    height: 82px;
+    height: 71px;
+    width: 970px;
+    &__logo {
+      padding-top: 10px;
+      float: left;
+      span {
+        display: inline;
+        font-size: 14px;
+        font-weight: bold;
+        color: #ff9933;
+        line-height: 0.8;
+        float: left;
+        position: absolute;
+        top: 60px;
+        left: 350px;
+      }
+    }
+    &__form-cooking {
+      // padding-left: 20px;
+      margin-left: 10px;
+      padding-top: 10px;
+      float: left;
+      display: inline;
+      .cooking_form {
+        border-radius: 3px;
+        border-color: #d1c6a9;
+        // padding: 6px 0 6px 5px;
+        height: 29px;
+        width: 210px;
+      }
+      .purpose {
+        border-radius: 3px;
+        border-color: #d1c6a9;
+        height: 29px;
+        width: 90px;
+      }
+      .search-button {
+        font-size: 14px;
+        width: 86px;
+        height: 32px;
+        border-style: none;
+        line-height: 10px;
+        border: 1px solid #cccccc;
+        // background-color: buttonface;
+        box-sizing: border-box;
+        background: linear-gradient(to bottom, #ffffff, #ececec);
+        cursor: pointer;
+      }
+    }
+    &__myfolder {
+      cursor: pointer;
+      width: 65px;
+      height: 54px;
+      text-align: center;
+      float: left;
+      padding-top: 12px;
+      margin-left: 10px;
+      // border: 1px solid yellow;
+      &--name {
+        font-size: 10px;
+      }
+    }
+    &__mynews {
+      cursor: pointer;
+      width: 65px;
+      height: 54px;
+      text-align: center;
+      float: left;
+      padding-top: 12px;
+      // border: 1px solid red;
+      &--name {
+        font-size: 10px;
+      }
+    }
+    &__write-recipe {
+      text-align: center;
+      padding-top: 12px;
+      .recipe-button {
+        font-size: 14px;
+        width: 100px;
+        height: 32px;
+        border-style: none;
+        line-height: 10px;
+        border: 1px solid #cccccc;
+        // background-color: buttonface;
+        box-sizing: border-box;
+        background: linear-gradient(to bottom, #ffffff, #ececec);
+        cursor: pointer;
+        background: linear-gradient(to bottom, #aec853, #8fa836);
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  .mainmenu {
+    height: 100%;
+    width: 100%;
   }
 
 
 
   .footer {
+    // border: 1px solid blue;
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, helvetica, sans-serif;
     line-height: 1.5;
     color: #3c3c3c;
