@@ -15,9 +15,20 @@ $(function() {
     console.log("aaaaaaaaaa");
     $("#login").fadeIn("slow");
 
-    $(".covered").click(function(){
-      $("#login").fadeOut();
-    });
+    // $(".covered").click(function(){
+    //   $("#login").fadeOut();
+    // });
     modalResize();
   });
+
+  $(".header__right--menulist--setting").click(function(){
+    console.log("bbbbbbbbb");
+    $("#setting").fadeIn("slow");
+
+    $(".covered").click(function(){
+      $("#setting").fadeOut();
+    });
+  });
+
+
 });

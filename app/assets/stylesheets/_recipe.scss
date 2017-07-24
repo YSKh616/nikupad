@@ -532,16 +532,35 @@
     .actions {
       margin: 10px auto;
       width: 280px;
-      height: 67px;
+      // height: 67px;
       border: 1px solid red;
-    }
-    .button {
-      height: 50px;
-      line-height: 40px;
-      font-size: 30px;
-      width: 280px;
+      .button {
+        line-height: 20px;
+        font-size: 20px;
+        display: block;
+        height: 42px;
+        width: 280px;
+        background-color: white;
+      }
     }
   }
 }
+
+#setting {
+  clear: both;
+  width: 112px;
+  height: 105px;
+  background-color: red;
+  position:fixed;
+  z-index: 1;
+  display:none;
+  left: 1000px;
+  top: 35px;
+  .logout {
+    width: 90px;
+    height: 31px;
+  }
+}
+
 
 
