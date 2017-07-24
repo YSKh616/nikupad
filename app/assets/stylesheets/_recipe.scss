@@ -86,6 +86,8 @@
   width: calc(100% - 190px);
   background-color: #f7f3e8;
   float: left;
+  z-index: 0;
+  @include clearfix;
 
   .upper {
     // border: 1px solid red;
@@ -498,6 +500,48 @@
   }
 }
 
-
+#login {
+  clear: both;
+  width: 360px;
+  height: 420px;
+  background: #f7f3e8;
+  border: 1px solid blue;
+  position:fixed;
+  z-index: 2;
+  display:none;
+  .covered {
+    margin: 0 15px;
+    padding: 0;
+    width: 330px;
+    height: 100%;
+    h4 {
+      border-bottom: 1px solid #D6D7B9;
+    }
+    .field {
+      margin: 0 25px;
+      width: 280px;
+    }
+    #user_email {
+      width: 280px;
+      height: 22px;
+    }
+    #user_password {
+      width: 280px;
+      height: 22px;
+    }
+    .actions {
+      margin: 10px auto;
+      width: 280px;
+      height: 67px;
+      border: 1px solid red;
+    }
+    .button {
+      height: 50px;
+      line-height: 40px;
+      font-size: 30px;
+      width: 280px;
+    }
+  }
+}
 
 

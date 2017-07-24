@@ -1,6 +1,11 @@
 = render 'header'
 - if user_signed_in?
   %div.covered
+    = render 'upper'
+    %div.contents
+      = render 'mainmenu'
+      = render 'recipe'
+    = render 'footer'
 - else
   %div.covered{title: "logout"}
     = render 'upper'
@@ -21,6 +26,5 @@
       %span 最近見たレシピ
     %div.sidebar__history
 
-
-
+= render 'login'
 
