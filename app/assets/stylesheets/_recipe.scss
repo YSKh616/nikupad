@@ -78,6 +78,10 @@
   }
 }
 
+.head-wrapper[title="logout"] {
+  width: 100%;
+}
+
 .covered {
   width: calc(100% - 190px);
   background-color: #f7f3e8;
@@ -92,7 +96,7 @@
     &__logo {
       padding-top: 10px;
       float: left;
-      span {
+      &--num {
         display: inline;
         font-size: 14px;
         font-weight: bold;
@@ -102,6 +106,11 @@
         position: absolute;
         top: 60px;
         left: 350px;
+      }
+      &--num[title="logout"] {
+        position: absolute;
+        top: 60px;
+        left: 445px;
       }
     }
     &__form-cooking {
@@ -466,6 +475,10 @@
       font-size: 80%;
     }
   }
+}
+
+.covered[title="logout"] {
+  width: 100%;
 }
 
 .sidebar {
