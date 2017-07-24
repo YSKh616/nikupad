@@ -1,12 +1,47 @@
-%div.head-wrapper
-  %div.header
-    %div.header__service
-      %span サービス一覧
-    %div.header__right
-      %div.header__right--menulist
-        %div.header__right--menulist--premium プレミアムサービス
-        %div.header__right--menulist--user
-          = image_tag("profile.png",:width => "24",:height => "24",:alt => "profile")
-          %div.header__right--menulist--user--name クックOUFVYS☆
-        %div.header__right--menulist--setting
-          = image_tag("setting.png",:width => "24",:height => "24",:alt => "setting")
+- if user_signed_in?
+  %div.head-wrapper
+    %div.header
+      %div.header__service
+        %span サービス一覧
+      %div.header__right
+        %div.header__right--menulist
+          %div.header__right--menulist--premium プレミアムサービス
+          %div.header__right--menulist--user
+            = image_tag("profile.png",:width => "24",:height => "24",:alt => "profile")
+            - if user_signed_in?
+              %div.header__right--menulist--user--name クックOUFVYS☆
+            - else
+              %div.header__right--menulist--user--new
+                = link_to new_user_registration_path, {class:"registration"} do
+                  ユーザー登録(無料)
+          - if user_signed_in?
+            %div.header__right--menulist--setting
+              = image_tag("setting.png",:width => "24",:height => "24",:alt => "setting")
+          - else
+            %div.header__right--menulist--login
+              / = link_to new_user_session_path, {class:"registration"} do
+              ログイン
+
+-else
+  %div.head-wrapper{title:"logout"}
+    %div.header
+      %div.header__service
+        %span サービス一覧
+      %div.header__right
+        %div.header__right--menulist
+          %div.header__right--menulist--premium プレミアムサービス
+          %div.header__right--menulist--user
+            = image_tag("profile.png",:width => "24",:height => "24",:alt => "profile")
+            - if user_signed_in?
+              %div.header__right--menulist--user--name クックOUFVYS☆
+            - else
+              %div.header__right--menulist--user--new
+                = link_to new_user_registration_path, {class:"registration"} do
+                  ユーザー登録(無料)
+          - if user_signed_in?
+            %div.header__right--menulist--setting
+              = image_tag("setting.png",:width => "24",:height => "24",:alt => "setting")
+          - else
+            %div.header__right--menulist--login
+              / = link_to new_user_session_path, {class:"registration"} do
+              ログイン

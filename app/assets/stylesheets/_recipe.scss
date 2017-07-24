@@ -27,7 +27,6 @@
         // border: 1px solid red;
         list-style-type: none;
         font-size: 13px;
-        font-weight: bold;
         line-height: 1px;
         display: inline-block;
         vertical-align: middle;
@@ -37,6 +36,7 @@
           display: inline-block;
           color: #ff8c1a;
           margin: 0;
+          font-weight: bold;
         }
         &--user {
           display: inline-block;
@@ -45,21 +45,49 @@
             display: inline-block;
             padding-left: 5px;
             text-align: right;
+            font-weight: bold;
+          }
+          &--new {
+            display: inline-block;
+            padding-left: 5px;
+            text-align: right;
+            .registration {
+              text-decoration: none;
+            }
+            .registration:hover {
+              text-decoration: underline;
+            }
           }
         }
         &--setting {
           text-align: right;
           display: inline-block;
         }
+        &--login {
+          text-align: right;
+          display: inline-block;
+          .registration {
+            text-decoration: none;
+          }
+          .registration:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
+}
+
+.head-wrapper[title="logout"] {
+  width: 100%;
 }
 
 .covered {
   width: calc(100% - 190px);
   background-color: #f7f3e8;
   float: left;
+  z-index: 0;
+  @include clearfix;
 
   .upper {
     // border: 1px solid red;
@@ -70,7 +98,7 @@
     &__logo {
       padding-top: 10px;
       float: left;
-      span {
+      &--num {
         display: inline;
         font-size: 14px;
         font-weight: bold;
@@ -80,6 +108,11 @@
         position: absolute;
         top: 60px;
         left: 350px;
+      }
+      &--num[title="logout"] {
+        position: absolute;
+        top: 60px;
+        left: 445px;
       }
     }
     &__form-cooking {
@@ -446,6 +479,10 @@
   }
 }
 
+.covered[title="logout"] {
+  width: 100%;
+}
+
 .sidebar {
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Meiryo", "メイリオ", "Osaka", "MS PGothic", arial, helvetica, sans-serif;
   float: right;
@@ -463,6 +500,67 @@
   }
 }
 
+#login {
+  clear: both;
+  width: 360px;
+  height: 420px;
+  background: #f7f3e8;
+  border: 1px solid blue;
+  position:fixed;
+  z-index: 2;
+  display:none;
+  .covered {
+    margin: 0 15px;
+    padding: 0;
+    width: 330px;
+    height: 100%;
+    h4 {
+      border-bottom: 1px solid #D6D7B9;
+    }
+    .field {
+      margin: 0 25px;
+      width: 280px;
+    }
+    #user_email {
+      width: 280px;
+      height: 22px;
+    }
+    #user_password {
+      width: 280px;
+      height: 22px;
+    }
+    .actions {
+      margin: 10px auto;
+      width: 280px;
+      // height: 67px;
+      border: 1px solid red;
+      .button {
+        line-height: 20px;
+        font-size: 20px;
+        display: block;
+        height: 42px;
+        width: 280px;
+        background-color: white;
+      }
+    }
+  }
+}
+
+#setting {
+  clear: both;
+  width: 112px;
+  height: 105px;
+  background-color: red;
+  position:fixed;
+  z-index: 1;
+  display:none;
+  left: 1000px;
+  top: 35px;
+  .logout {
+    width: 90px;
+    height: 31px;
+  }
+}
 
 
 

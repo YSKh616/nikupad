@@ -1,21 +1,33 @@
 = render 'header'
-%div.covered
-  = render 'upper'
-  %div.contents
-    = render 'mainmenu'
-    = render 'recipe'
-    %div.kondate
-      %div.kondate__header
-      %div.kondate__title
-      %div.kondate__topic
-      %div.kondate__morning
-      %div.kondate__lunch
-      %div.kondate__dinner
-  = render 'footer'
-%div.sidebar
-  %div.sidebar__title
-    %span 最近見たレシピ
-  %div.sidebar__history
+- if user_signed_in?
+  %div.covered
+    = render 'upper'
+    %div.contents
+      = render 'mainmenu'
+      = render 'recipe'
+    = render 'footer'
+- else
+  %div.covered{title: "logout"}
+    = render 'upper'
+    %div.contents
+      = render 'mainmenu'
+      = render 'recipe'
+      %div.kondate
+        %div.kondate__header
+        %div.kondate__title
+        %div.kondate__topic
+        %div.kondate__morning
+        %div.kondate__lunch
+        %div.kondate__dinner
+    = render 'footer'
+- if user_signed_in?
+  %div.sidebar
+    %div.sidebar__title
+      %span 最近見たレシピ
+    %div.sidebar__history
 
+= render 'login'
 
-
+%div#setting
+  %div.logout
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout'
