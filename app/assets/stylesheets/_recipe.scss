@@ -66,12 +66,17 @@
         &--login {
           text-align: right;
           display: inline-block;
+          text-decoration: none;
+          cursor: pointer;
           .registration {
             text-decoration: none;
           }
           .registration:hover {
             text-decoration: underline;
           }
+        }
+        &--login:hover {
+          text-decoration: underline;
         }
       }
     }
@@ -509,6 +514,8 @@
   position:fixed;
   z-index: 2;
   display:none;
+  border: 5px solid #e3dcca;
+  border-radius: 5px;
   .covered {
     margin: 0 15px;
     padding: 0;
@@ -530,17 +537,45 @@
       height: 22px;
     }
     .actions {
-      margin: 10px auto;
+      margin: 20px auto;
       width: 280px;
-      // height: 67px;
-      border: 1px solid red;
       .button {
         line-height: 20px;
-        font-size: 20px;
+        font-size: 16px;
+        font-family: inherit;
+        cursor: pointer;
+        font-weight: bold;
         display: block;
         height: 42px;
         width: 280px;
         background-color: white;
+        border-radius: 5px;
+      }
+    }
+    .pass {
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 12px;
+      margin: 20px 50px 0 50px;
+      width: 280px;
+    }
+    .registration {
+      margin: 0px auto;
+      width: 280px;
+      .registration-button {
+        font-size: 14px;
+        height: 42px;
+        width: 280px;
+        border-style: none;
+        line-height: 10px;
+        border: 1px solid #cccccc;
+        // background-color: buttonface;
+        box-sizing: border-box;
+        cursor: pointer;
+        background: linear-gradient(to bottom, #ff8215, #e05a00);
+        color: #ffffff !important;
+        font-size: 16px;
+        border-radius: 5px;
       }
     }
   }

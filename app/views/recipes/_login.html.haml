@@ -16,4 +16,9 @@
       /     = f.label :remember_me
       .actions
         = f.submit "ログイン", class: "button"
+      .pass
+        %span パスワード、登録情報を忘れてしまった方
+    %h4 ユーザー登録されていない方
+    .registration
+      = submit_tag "クックパッドユーザー登録(無料)", class: "registration-button"
 
