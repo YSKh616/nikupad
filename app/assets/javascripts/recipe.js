@@ -15,9 +15,9 @@ $(function() {
     console.log("aaaaaaaaaa");
     $("#login").fadeIn("slow");
 
-    // $(".covered").click(function(){
-    //   $("#login").fadeOut();
-    // });
+    $(".contents").click(function(){
+      $("#login").fadeOut();
+    });
     modalResize();
   });
 

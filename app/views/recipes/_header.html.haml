@@ -19,8 +19,7 @@
               = image_tag("setting.png",:width => "24",:height => "24",:alt => "setting")
           - else
             %div.header__right--menulist--login
-              / = link_to new_user_session_path, {class:"registration"} do
-              ログイン
+              %span.registration ログイン
 
 -else
   %div.head-wrapper{title:"logout"}
