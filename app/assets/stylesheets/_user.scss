@@ -6,7 +6,60 @@ h2 {
 .registration-content {
   width: 970px;
   margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 20px;
   border: 1px solid red;
   background-color: white;
+  .info {
+    font-size: 13px;
+    display: block;
+    margin-bottom: -40px;
+  }
+  .user-info {
+    border-collapse: collapse;
+    border-spacing: 0;
+    .field {
+      background: #faf9f4;
+      height: 76px;
+      width: 146px;
+      th {
+        border-bottom: 1px solid #e3dcca;
+      }
+      td {
+        padding-left: 10px;
+        box-sizing: border-box;
+        background-color: white;
+        width: 484px;
+        height: 76px;
+        border-top: 1px solid #e3dcca;
+        border-bottom: 1px solid #e3dcca;
+        .text {
+          border-radius: 5px;
+          background: url(/assets/shared/input_back.png?f31edb52fe3aae606c6ec53a6b71c104b5e45e0e8e599b9c9cc48ddef2bf9b2d) no-repeat;
+          width: 260px;
+          height: 35px;
+        }
+      }
+    }
+  }
+  .actions {
+    margin: 20px auto;
+    width: 280px;
+    .registration-button {
+      font-size: 14px;
+      height: 42px;
+      width: 280px;
+      border-style: none;
+      line-height: 10px;
+      border: 1px solid #cccccc;
+      // background-color: buttonface;
+      box-sizing: border-box;
+      cursor: pointer;
+      background: linear-gradient(to bottom, #ff8215, #e05a00);
+      color: #ffffff !important;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  }
 }
 
