@@ -1,6 +1,6 @@
 %div.upper
   %div.upper__logo
-    = link_to "/" do
+    = link_to "/", method: :get do
       = image_tag("logo.png",:width => "264",:height => "54",:alt => "logo")
     - if user_signed_in?
       %span.upper__logo--num 271万
