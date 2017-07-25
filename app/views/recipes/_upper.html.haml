@@ -1,6 +1,7 @@
 %div.upper
   %div.upper__logo
-    = image_tag("logo.png",:width => "264",:height => "54",:alt => "logo")
+    = link_to "/" do
+      = image_tag("logo.png",:width => "264",:height => "54",:alt => "logo")
     - if user_signed_in?
       %span.upper__logo--num 271万
     - else
