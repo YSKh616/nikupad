@@ -40,6 +40,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem "font-awesome-rails"
 end
 
 group :development do
@@ -53,9 +54,9 @@ end
 
 group :production do
   gem 'unicorn'
+  gem "font-awesome-rails"
 end
 
 gem 'haml-rails'
-gem "font-awesome-rails"
 gem 'devise'
 gem 'jquery-turbolinks'
