@@ -19,4 +19,5 @@
     = image_tag("mynews.png",:width => "36",:height => "36",:alt => "folder")
     %div.upper__mynews--name MYニュース
   %div.upper__write-recipe
-    = submit_tag "レシピを書く", class: "recipe-button"
+    = link_to new_recipe_path do
+      %span.recipe-button レシピを書く
