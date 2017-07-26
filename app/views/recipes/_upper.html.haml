@@ -19,5 +19,9 @@
     = image_tag("mynews.png",:width => "36",:height => "36",:alt => "folder")
     %div.upper__mynews--name MYニュース
   %div.upper__write-recipe
-    = link_to new_recipe_path do
-      %span.recipe-button レシピを書く
+    - if user_signed_in?
+      = link_to new_recipe_path, method: :get do
+        %span.recipe-button レシピを書く
+    - else
+      %span.recipe-button.header__right--menulist--login レシピを書く
+      = render './recipes/login'
