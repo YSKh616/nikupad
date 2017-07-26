@@ -12,7 +12,7 @@
               %div.header__right--menulist--user--name クックOUFVYS☆
             - else
               %div.header__right--menulist--user--new
-                = link_to new_user_registration_path, {class:"registration"} do
+                = link_to new_user_registration_path, {class:"registration", method: :get} do
                   ユーザー登録(無料)
           - if user_signed_in?
             %div.header__right--menulist--setting
@@ -35,7 +35,7 @@
               %div.header__right--menulist--user--name クックOUFVYS☆
             - else
               %div.header__right--menulist--user--new
-                = link_to new_user_registration_path, {class:"registration"} do
+                = link_to new_user_registration_path, {class:"registration", method: :get } do
                   ユーザー登録(無料)
           - if user_signed_in?
             %div.header__right--menulist--setting
