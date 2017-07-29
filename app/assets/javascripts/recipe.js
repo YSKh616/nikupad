@@ -13,7 +13,7 @@ $(function() {
 
   $(".header__right--menulist--login").click(function(){
     console.log("aaaaaaaaaa");
-    $("#login").fadeIn("slow");
+    $("#login").fadeIn(100);
 
     $(".contents").click(function(){
       $("#login").fadeOut();
@@ -23,12 +23,11 @@ $(function() {
 
   $(".header__right--menulist--setting").click(function(){
     console.log("bbbbbbbbb");
-    $("#setting").fadeIn("slow");
+    $("#setting").fadeIn(100);
 
     $(".covered").click(function(){
       $("#setting").fadeOut();
     });
   });
-
 
 });
