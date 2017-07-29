@@ -9,14 +9,14 @@
             %span «クックOUFVYS☆のレシピ
           %div.delete
             %span 削除
-        %div.recipe-main__top--title
-          %span タイトルを入力してください
+        %div.recipe-main__top--title#recipe-title
+          %span#recipe-title-form タイトルを入力してください
         %div.recipe-main__top--image
           = image_tag("blank.png",:width => "280",:height => "383",:alt => "blank")
         %div.recipe-main__top--right
           %div.recipe-main__top--right--catch-copy
-            %div.catch-copy
-              %span クリックしてこのレシピのキャッチコピーを入力(検索結果にも表示されます)
+            %div.catch-copy#catch-copy
+              %span#recipe-catchcopy クリックしてこのレシピのキャッチコピーを入力(検索結果にも表示されます)
             %div.author
               %span クックOUFVYS☆
             %div.material
@@ -68,14 +68,14 @@
             %div.method
               %span クリックして作り方を入力
       %div.recipe-main__memo
-        %div.point
+        %div.point#point
           %h3 コツ・ポイント
-          %span クリックしてコツやポイントを入力
-        %div.background
+          %span#recipe-point クリックしてコツやポイントを入力
+        %div.background#background
           %h3 このレシピの生い立ち
-          %span クリックしてこのレシピが生まれたきっかけや経緯を入力
-          %span 例）母から教わったレシピを、家族が好む甘めの味付けにアレンジしました
-          %span 例）○○番組で紹介されたレシピを、家にある材料で簡単に作れるよう工夫しました
+          %span.recipe-background クリックしてこのレシピが生まれたきっかけや経緯を入力
+          %span.recipe-background 例）母から教わったレシピを、家族が好む甘めの味付けにアレンジしました
+          %span.recipe-background 例）○○番組で紹介されたレシピを、家にある材料で簡単に作れるよう工夫しました
       %div.recipe-main__id-date
         %span レシピID : 4639067
         %span 公開日 : 未公開
@@ -89,48 +89,50 @@
             %span サンプルはこちら
         %div.table
           %table.method
-            %tr
+            %tr#writing-title
               %th
                 %i.fa.fa-angle-down
               %td
                 レシピのタイトル
-            %tr
+                / %div.description
+                /   aaaaa
+            %tr#writing-image
               %th
                 %i.fa.fa-angle-down
               %td
                 レシピの写真
-            %tr
+            %tr#writing-introduction
               %th
                 %i.fa.fa-angle-down
               %td
                 レシピの紹介文
-            %tr
+            %tr#writing-material
               %th
                 %i.fa.fa-angle-down
               %td
                 材料・分量
-            %tr
+            %tr#writing-method
               %th
                 %i.fa.fa-angle-down
               %td
                 作り方
-            %tr
+            %tr#writing-point
               %th
                 %i.fa.fa-angle-down
               %td
                 コツ、ポイント
-            %tr
+            %tr#writing-background
               %th.last
                 %i.fa.fa-angle-down
               %td.last
                 レシピの生い立ち
-      %div.release
-        %div.tag
-          / タグリストを後に追加
-          %div.new-tag
-            %span ＋新規カテゴリを追加
-        %div.button
-          = submit_tag "レシピを公開する", class: "release-button"
+      / %div.release
+      /   %div.tag
+      /     / タグリストを後に追加
+      /     %div.new-tag
+      /       %span ＋新規カテゴリを追加
+      /   %div.button
+      /     = submit_tag "レシピを公開する", class: "release-button"
 
 
   = render 'footer'

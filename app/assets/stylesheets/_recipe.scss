@@ -464,6 +464,28 @@
           font-size: 20px;
           line-height: 32px;
           padding-left: 5px;
+          .title-edit {
+            line-height: 4px;
+          }
+          .title-form {
+            line-height: 4px;
+            width: 259px;
+            height: 26px;
+            background: #ffffd3;
+            font-size: 14px;
+          }
+          #str-count {
+            margin:0;
+            padding: 0;
+            color: #666;
+            font-size: 10px;
+          }
+          #cancel {
+            color: #330000;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+          }
         }
         &--image {
           margin-top: 10px;
@@ -480,19 +502,44 @@
           float: right;
           .catch-copy {
             width: 310px;
-            height: 34px;
-            line-height: 12px;
+            height: 44px;
+            line-height: 18px;
             span {
               color: #999999;
               font-size: 12px;
             }
+            .title-edit {
+              line-height: 4px;
+            }
+            .catchcopy-form {
+              line-height: 18px;
+              width: 295px;
+              height: 60px;
+              background: #ffffd3;
+              font-size: 14px;
+            }
+            #str-count {
+              margin:0;
+              padding: 0;
+              color: #666;
+              font-size: 10px;
+            }
+            #cancel {
+              color: #330000;
+              font-size: 14px;
+              cursor: pointer;
+              text-decoration: underline;
+            }
           }
+          // .catch-copy:hover {
+          //   background-color: #ffff99;
+          // }
           .author {
-            cursor: pointer;
             width: 310px;
             height: 27px;
             text-align: right;
             span {
+              cursor: pointer;
               color: #845f4b;
               font-size: 15px;
               text-decoration: underline;
@@ -574,6 +621,7 @@
         .point {
           float: left;
           width: 300px;
+          line-height: 12px;
           h3 {
             color: #E0D7C1;
             font-weight: bold;
@@ -582,6 +630,28 @@
           span {
             color: #999;
             font-size: 12px;
+          }
+          .title-edit {
+            line-height: 4px;
+          }
+          .point-form {
+            line-height: 18px;
+            width: 290px;
+            height: 130px;
+            background: #ffffd3;
+            font-size: 14px;
+          }
+          #str-count {
+            margin:0;
+            padding: 0;
+            color: #666;
+            font-size: 10px;
+          }
+          #cancel {
+            color: #330000;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
           }
         }
         .background {
@@ -598,6 +668,31 @@
             display:block;
             color: #999;
             font-size: 12px;
+          }
+          .title-edit {
+            line-height: 4px;
+          }
+          .background-form {
+            line-height: 18px;
+            width: 290px;
+            height: 130px;
+            background: #ffffd3;
+            font-size: 14px;
+          }
+          #str-count {
+            margin:0;
+            padding: 0;
+            color: #666;
+            font-size: 10px;
+          }
+          #cancel {
+            color: #330000;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+          }
+          #str-limit, #cancel {
+            display: inline;
           }
         }
       }
@@ -651,17 +746,45 @@
           background-color: white;
           clear: both;
           width: 300px;
+          overflow: hidden;
+          height: auto;
           .method {
             width: 300px;
+            height: auto;
             border-collapse: collapse;
             border-spacing: 0;
-            td, th {
+            tr {
               border-bottom: 1px solid #ded5c0;
+              overflow: hidden;
+            }
+            td, th {
+              // border-bottom: 1px solid #ded5c0;
+              cursor: pointer;
             }
             td {
               font-size: 14px;
               line-height: 30px;
-              cursor: pointer;
+            }
+            th {
+              vertical-align: top;
+              padding-top: 5px;
+            }
+            .description {
+              display: block;
+              box-sizing: border-box;
+              position: relative;
+              left: -28px;
+              background: #fffdef;
+              width: 293px;
+              // height: 60px;
+              margin-bottom: 2px;
+              color: #666666;
+              padding: 10px;
+              line-height: 20px;
+            }
+            .asterisk {
+              font-size: 11px;
+              line-height: 15px;
             }
             .last {
               border-bottom: none;
