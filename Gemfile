@@ -60,3 +60,4 @@ end
 gem 'haml-rails'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'

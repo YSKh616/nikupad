@@ -19,7 +19,7 @@
               %span#recipe-catchcopy クリックしてこのレシピのキャッチコピーを入力(検索結果にも表示されます)
             %div.author
               %span クックOUFVYS☆
-            %div.material
+            %div.material#material
               = image_tag("material.png",:width => "310",:height => "217",:alt => "material")
       %div.recipe-main__cooking-method
         %ul.all-method
@@ -137,8 +137,6 @@
 
   = render 'footer'
 
-= render 'login'
-
 %div.sidebar
   %div.sidebar__title
     %span 最近見たレシピ
@@ -146,3 +144,4 @@
 
 = render 'setting'
 
+= render 'material'
