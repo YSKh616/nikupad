@@ -63,3 +63,100 @@ h2 {
   }
 }
 
+.mypage {
+  width:700px;
+  height: 180px;
+  background-color: white;
+  margin-left: 140px;
+  .header {
+    margin: 0 auto;
+    width: 650px;
+    height: 30px;
+    border-bottom: 1px solid #D6D7B9;
+    padding-top: 20px;
+    .left {
+      color: #2F1C12;
+      font-weight: bold;
+      float: left;
+      font-size: 20px;
+    }
+    .right {
+      font-size: 12px;
+      color: #666;
+      float: right;
+      padding-top: 5px;
+    }
+  }
+  .user-info {
+    clear: both;
+    margin: 15px auto 0 auto;
+    width: 650px;
+    height: 200px;
+    .icon {
+      float: left;
+    }
+    .info-edit {
+      float: left;
+      margin-left: 10px;
+      .upper {
+        width: 500px;
+        height: 18px;
+        .name {
+          font-weight: bold;
+          font-size: 19px;
+        }
+        .change {
+          font-size: 12px;
+          color: #845f4b;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+      .lower {
+        width: 500px;
+        height: 18px;
+        color: #666;
+        margin:0;
+        .kitchen {
+          font-size: 13px;
+        }
+        .user-kitchen {
+          font-size: 15px;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+    .edit-footer {
+      clear: both;
+      display: block;
+      width:650px;
+      height: 20px;
+      background-color: white;
+      .icon-change {
+        width: 70px;
+        font-size: 12px;
+        color: #845f4b;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .registration-date {
+        width: 100px;
+        font-size: 12px;
+        margin-left: 5px;
+        color: #666;
+      }
+      .reset-date {
+        width: 100px;
+        font-size: 12px;
+        margin-left: 10px;
+        color: #666;
+      }
+    }
+  }
+}
+
+
+
+
+

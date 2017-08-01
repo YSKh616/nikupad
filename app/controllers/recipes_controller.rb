@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   def index
+    @user = current_user
   end
 
   def new
@@ -7,4 +8,5 @@ class RecipesController < ApplicationController
 
   def create
   end
+
 end
