@@ -13,12 +13,12 @@ $(function() {
 
   function materialAdd() {
     var html =  '<li class="one-material">'+
-                '<img src="/assets/up_down.png", class="up_down", width="24", height="24"></img>'+
+                '<img src="/images/up_down.png", class="up_down", width="24", height="24"></img>'+
                 '<form>'+
                 '<input type="text", name="text", class="material_form">'+
                 '<input type="text", name="text", class="quantity_form">'+
                 '</form>'+
-                '<img src="/assets/batsu_off.png", class="batsu", width="19", height="19"></img>'+
+                '<img src="/images/batsu_off.png", class="batsu", width="19", height="19"></img>'+
                 '</li>';
     return html;
   }
@@ -49,11 +49,11 @@ $(function() {
 
   $(document).on("mouseover", ".batsu", function(){
     // $(this).removeAttr('src');
-    $(this).attr('src', '/assets/batsu_on.png');
+    $(this).attr('src', '/images/batsu_on.png');
   });
 
   $(document).on("mouseout", ".batsu", function(){
-    $(this).attr('src', '/assets/batsu_off.png');
+    $(this).attr('src', '/images/batsu_off.png');
   });
 
 });
