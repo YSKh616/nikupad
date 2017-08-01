@@ -1,0 +1,30 @@
+=render './recipes/header'
+%div.covered
+  =render partial:'./recipes/upper', locals: { user: @user }
+  %div.mypage
+    %div.header
+      %span.left 登録情報
+      %span.right このページはあなたのみ閲覧できます
+    %div.user-info
+      %div.icon
+        = image_tag("profile.png",:width => "48",:height => "48",:alt => "profile")
+      %div.info-edit
+        %div.upper
+          %span.name= @user.name
+          %span.change (変更する)
+        %div.lower
+          %span.kitchen あなたのキッチン：
+          %span.user-kitchen= "#{@user.name}のキッチン"
+      %div.edit-footer
+        %span.icon-change 変更する
+        %span.registration-date 登録日: 17/07/22
+        %span.reset-date 変更日: 17/07/22
+
+  = render './recipes/footer'
+
+%div.sidebar
+  %div.sidebar__title
+    %span 最近見たレシピ
+  %div.sidebar__history
+
+= render './recipes/setting'
