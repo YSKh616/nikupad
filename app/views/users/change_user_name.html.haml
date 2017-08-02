@@ -1,0 +1,32 @@
+=render './recipes/header'
+%div.covered
+  =render partial:'./recipes/upper', locals: { user: @user }
+  %div.edit-username
+    %div.header 名前の変更
+    %span.attention ※3〜10文字以内。半角記号・スペース・絵文字は使用できません。
+    = form_for @user, html:{ multipart: true}, url: "/users/#{@user.id}/change_user_name" do |f|
+      %div.table
+        %table
+          %tr
+            %th.current 現在のニックネーム
+            %td.current-name= @user.name
+          %tr
+            %th.new 新しいニックネーム
+            %td.new-name
+              %span あと
+              %span.user-name-limit 10
+              %span 文字
+              = f.text_field :name, class: "name_form", value: ""
+      %div.rename-button
+        = f.button "ニックネームを変更する", class: "change-name-button", disabled: true
+    %div.rename-footer
+      =link_to edit_user_path(1), method: :get do
+        %span 登録情報に戻る
+
+  = render './recipes/footer'
+%div.sidebar
+  %div.sidebar__title
+    %span 最近見たレシピ
+  %div.sidebar__history
+
+= render './recipes/setting'

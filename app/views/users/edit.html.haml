@@ -11,7 +11,8 @@
       %div.info-edit
         %div.upper
           %span.name= @user.name
-          %span.change (変更する)
+          = link_to '/users/1/change_user_name', method: :get do
+            %span.change (変更する)
         %div.lower
           %span.kitchen あなたのキッチン：
           %span.user-kitchen= "#{@user.name}のキッチン"
