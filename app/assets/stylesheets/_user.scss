@@ -156,6 +156,103 @@ h2 {
   }
 }
 
+.edit-username {
+  width: 650px;
+  height: 295px;
+  margin-left: 140px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #e3dcca;
+  padding: 10px 0 0 20px;
+  .header {
+    font-weight: bold;
+    font-size: 20px;
+    color: #4d2200;
+    // padding-left: 10px;
+  }
+  .attention {
+    font-size: 12px;
+    color: #666;
+  }
+  .current {
+    width: 213px;
+    height: 34px;
+    background: #eee5cc;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 5px;
+  }
+  .current-name {
+    width: 396px;
+    height: 34px;
+    padding-left: 5px;
+  }
+  .new {
+    width: 213px;
+    height: 64px;
+    background: #eee5cc;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 5px;
+  }
+  .new-name {
+    width: 396px;
+    height: 64px;
+    padding-left: 5px;
+    span {
+      color: #999999;
+      font-size: 13px;
+      margin: 0;
+      padding: 0;
+    }
+    .name_form {
+      width: 330px;
+      height: 30px;
+      box-shadow: inset 1px 1px 4px #e6e6e6;
+      border-radius: 3px;
+      box-sizing: border-box;
+      border: 1px solid #cccccc;
+      font-size: 16px;
+    }
+  }
+  th, td {
+    border: 1px solid #e3dcca;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .rename-button {
+    width: 650px;
+    height: 60px;
+    text-align: center;
+    // vertical-align: middle;
+    margin: 40px auto 0 auto;
+    .change-name-button {
+      cursor: pointer;
+      // color: #3c3c3c;
+      color: #999999;
+      border: 1px solid #c4c4c4;
+      // background: linear-gradient(to bottom, #f7f7f7, #e4e4e4);
+      background-color: #ececec;
+      border-radius: 5px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 35px;
+    }
+  }
+  .rename-footer {
+    width: 650px;
+    text-align: center;
+    maegin: 0 auto;
+    span {
+      color: #845f4b;
+      font-size: 13px;
+    }
+  }
+}
+
 
 
 
