@@ -20,8 +20,10 @@
     %div.upper__mynews--name MYニュース
   %div.upper__write-recipe
     - if user_signed_in?
-      = link_to new_recipe_path, method: :get do
-        %span.recipe-button レシピを書く
+      = form_tag({action: :create}) do
+        = submit_tag "レシピを書く", class: "recipe-button"
+      / = link_to new_recipe_path do
+      /   %span.recipe-button レシピを書く
     - else
       %span.recipe-button.header__right--menulist--login レシピを書く
       = render './recipes/login'

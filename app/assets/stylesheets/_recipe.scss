@@ -518,6 +518,11 @@
               background: #ffffd3;
               font-size: 14px;
             }
+            #recipe-catchcopy-text {
+              font-size: 14px;
+              color: #3c3c3c;
+              word-wrap: break-word;
+            }
             #str-count {
               margin:0;
               padding: 0;
@@ -630,16 +635,26 @@
           span {
             color: #999;
             font-size: 12px;
+            width: 270px;
           }
           .title-edit {
             line-height: 4px;
           }
           .point-form {
             line-height: 18px;
-            width: 290px;
+            width: 270px;
             height: 130px;
             background: #ffffd3;
             font-size: 14px;
+          }
+          #recipe-point[title="add"] {
+            font-size: 14px;
+            color: #3c3c3c;
+            width: 270px;
+            word-wrap: break-word;
+          }
+          #recipe-point[title="add"]:hover {
+            background-color: #ffff99;
           }
           #str-count {
             margin:0;
@@ -674,10 +689,20 @@
           }
           .background-form {
             line-height: 18px;
-            width: 290px;
+            width: 280px;
             height: 130px;
             background: #ffffd3;
             font-size: 14px;
+          }
+          .recipe-background[title="add"] {
+            font-size: 14px;
+            color: #3c3c3c;
+            width: 270px;
+            word-wrap: break-word;
+            line-height: 14px;
+          }
+          .recipe-background[title="add"]:hover {
+            background-color: #ffff99;
           }
           #str-count {
             margin:0;
