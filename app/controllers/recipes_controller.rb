@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new()
     @user = current_user
+    @recipe.user_id = @user.id
     @recipe.save
     # - binding.pry
     redirect_to action: :edit, id: @recipe.id
