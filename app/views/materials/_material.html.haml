@@ -1,0 +1,40 @@
+%div#material-setting
+  %div.covered
+    = form_for(@material, :url => {:controller => :recipes, :action => :material_create}) do |f|
+      %div.number
+        %span.left (
+        = f.fields_for :recipes do |i|
+          = i.text_field :people, {placeholder:"何人分", class: "number_people"}
+          / = text_field_tag :text, nil, placeholder:"何人分", class: "number_people"
+        %span )
+        %span.example 例) 2人分
+      %div.header
+        %div.header__material 材料・調味料
+        %div.header__quantity 分量
+      %ul.all-material
+        = f.fields_for 'materials[]', @material do |material|
+          %li.one-material
+            = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+            / = form_tag do
+            = material.text_field :name, {placeholder:"例) 豚肉", class: "material_form"}
+            = material.text_field :quantity, {placeholder:"例) 350g", class: "quantity_form"}
+            = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+          %li.one-material
+            = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+            / = form_tag do
+            = material.text_field :name, {placeholder:"例) にんじん", class: "material_form"}
+            = material.text_field :quantity, {placeholder:"例) 1本", class: "quantity_form"}
+            = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+          %li.one-material
+            = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+            / = form_tag do
+            = material.text_field :name, {placeholder:"例) 大根", class: "material_form"}
+            = material.text_field :quantity, {placeholder:"例) 1/2本", class: "quantity_form"}
+            = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+      %div.add-line
+        = submit_tag "行を追加する", class: "add-line-button"
+      %div.material-footer
+        %div.material-footer__save
+          = f.submit "保存して閉じる", class: "save-button"
+        %div.material-footer__advise 分かりやすい分量で、みんながおいしく作れるレシピに！例：適量 → 小さじ1
+

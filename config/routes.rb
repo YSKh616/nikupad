@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   patch 'users/:id/change_user_name' => 'users#update_user_name'
   get 'recipes/:id' => 'recipes#edit'
   patch 'recipes/:id' => 'recipes#update'
-
+  # resources :materials, only: [:new, :create]
+  post 'recipes/:id' => 'recipes#material_create'
 end

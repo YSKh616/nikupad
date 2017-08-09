@@ -21,6 +21,11 @@ class RecipesController < ApplicationController
 
   def edit
     @user = current_user
+    @material = Material.new
+    # @material = (1..3).map do
+    #   Material.new
+    # end
+    # @material = []
     # @recipe = Recipe.find(42)
     @recipe = Recipe.find(params[:id])
   end
@@ -42,6 +47,13 @@ class RecipesController < ApplicationController
       format.html { redirect_to action: :edit, id: @recipe.id }
       format.json
     end
+  end
+
+  def material_create
+    # @material = Material.new
+    binding.pry
+    materials = params.require(:material).require(:materials)
+    
   end
 
   private

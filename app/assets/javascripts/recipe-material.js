@@ -26,6 +26,19 @@ $(function() {
   $(".recipe-main__top--right--catch-copy").on("click", "#material", function(){
     modalResize();
     $("#material-setting").fadeIn(100);
+    // console.log("aaaaaaaaaa");
+    // $.ajax({
+    //   type: 'GET',
+    //   url: "../materials/new",
+    //   data: '',
+    //   dataType: 'json'
+    // })
+    // .done(function(data){
+    //   $("#material-setting").fadeIn(100);
+    // })
+    // .fail(function(){
+    //   window.alert('aaaa');
+    // })
   });
 
   $(".example").click(function(){
