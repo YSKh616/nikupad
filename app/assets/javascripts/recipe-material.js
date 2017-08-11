@@ -26,19 +26,30 @@ $(function() {
   $(".recipe-main__top--right--catch-copy").on("click", "#material", function(){
     modalResize();
     $("#material-setting").fadeIn(100);
-    // console.log("aaaaaaaaaa");
-    // $.ajax({
-    //   type: 'GET',
-    //   url: "../materials/new",
-    //   data: '',
-    //   dataType: 'json'
-    // })
-    // .done(function(data){
-    //   $("#material-setting").fadeIn(100);
-    // })
-    // .fail(function(){
-    //   window.alert('aaaa');
-    // })
+    console.log("aaaaaaaaaa");
+    $("#save-material").on("click", function(e) {
+      e.preventDefault();
+      var people = $('input[name="material[recipes][people]"]').serializeArray();
+      var name = $('input[name="material[materials][][name]"]').serializeArray();
+      var quantity = $('input[name="material[materials][][quantity]"]').serializeArray();
+      // console.log(people);
+      // console.log(name);
+      // console.log(quantity);
+      var material = [people, name, quantity];
+      console.log(material);
+      $.ajax({
+        type: 'POST',
+        url: location.href,
+        data: {material: material},
+        dataType: 'json',
+      })
+      .done(function(data){
+        $("#material-setting").fadeOut();
+      })
+      .fail(function(){
+        window.alert('aaaa');
+      })
+    })
   });
 
   $(".example").click(function(){

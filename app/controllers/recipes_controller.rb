@@ -51,9 +51,35 @@ class RecipesController < ApplicationController
 
   def material_create
     # @material = Material.new
-    binding.pry
-    materials = params.require(:material).require(:materials)
-    
+    # binding.pry
+    @recipe = Recipe.find(params[:id])
+    materials = params.require(:material)
+    records = []
+    lines = []
+    # binding.pry
+    for i in 0..(materials["1"].length - 1) do
+      material ={}
+      material[:name] = materials["1"]["#{i}"][:value]
+      material[:quantity] = materials["2"]["#{i}"][:value]
+      lines << material
+      # binding.pry
+    end
+
+    # materials["1"].each do |name|
+    #   record[:name] = name
+    # end
+    # materials["2"].each do |quantity|
+    #   record[:quantity] = quantity
+    # end
+    lines.each do |line|
+      records << Material.new(name: line[:name], quantity: line[:quantity])
+      # binding.pry
+    end
+    Material.import records
+    respond_to do |format|
+      format.html { redirect_to action: :edit, id: @recipe.id }
+      format.json
+    end
   end
 
   private
