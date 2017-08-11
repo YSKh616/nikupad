@@ -1,3 +1,5 @@
+json.people  @recipe.people
+
 json.names @name.each do |name|
   json.array! name.each do |material|
     json.name     material["value"]

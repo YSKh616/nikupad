@@ -26,8 +26,18 @@
                   %span#recipe-catchcopy クリックしてこのレシピのキャッチコピーを入力(検索結果にも表示されます)
               %div.author
                 %span= @user.name
-              %div.material#material
-                = image_tag("material.png",:width => "310",:height => "217",:alt => "material")
+              - if (@recipe.people).present?
+                %div.material#material
+                  %div.material-header
+                    %span 材料
+                    %span.material-people= "(#{@recipe.people})"
+                  - @recipe.materials.each do |material|
+                    %div.material-one
+                      %div.material-left= "#{material.name}"
+                      %div.material-right= "#{material.quantity}"
+              - else
+                %div.material#material
+                  = image_tag("material.png",:width => "310",:height => "217",:alt => "material")
         %div.recipe-main__cooking-method
           %ul.all-method
             %li

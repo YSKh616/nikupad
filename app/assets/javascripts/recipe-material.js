@@ -23,9 +23,14 @@ $(function() {
     return html;
   }
 
-  function materialViewHeader() {
+  function materialViewHeader(data) {
     var html =  '<div class="material" id="material">'+
-                '<div class="material-header">材料</div>'+
+                '<div class="material-header">'+
+                '<span>材料</span>'+
+                '<span class="material-people">('+
+                data.people+
+                ')</span>'+
+                '</div>'+
                 '</div>';
     return html;
   }
@@ -63,7 +68,7 @@ $(function() {
       .done(function(json){
         $('#material').remove();
 
-        var html = materialViewHeader();
+        var html = materialViewHeader(json);
         $(".recipe-main__top--right--catch-copy").append(html);
         html = "";
         for (var i = 0; i < json.names.length; i++) {
