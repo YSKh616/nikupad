@@ -53,24 +53,22 @@ class RecipesController < ApplicationController
     # @material = Material.new
     # binding.pry
     @recipe = Recipe.find(params[:id])
-    materials = params.require(:material)
+    # binding.pry
+    @materials = params.require(:material)
+    # binding.pry
+    @recipe.update(people: @materials["0"]["0"][:value])
+    @name = @materials["1"]
+    @quantity = @materials["2"]
     records = []
     lines = []
     # binding.pry
-    for i in 0..(materials["1"].length - 1) do
+    for i in 0..(@materials["1"].length - 1) do
       material ={}
-      material[:name] = materials["1"]["#{i}"][:value]
-      material[:quantity] = materials["2"]["#{i}"][:value]
+      material[:name] = @materials["1"]["#{i}"][:value]
+      material[:quantity] = @materials["2"]["#{i}"][:value]
       lines << material
       # binding.pry
     end
-
-    # materials["1"].each do |name|
-    #   record[:name] = name
-    # end
-    # materials["2"].each do |quantity|
-    #   record[:quantity] = quantity
-    # end
     lines.each do |line|
       records << Material.new(name: line[:name], quantity: line[:quantity])
       # binding.pry

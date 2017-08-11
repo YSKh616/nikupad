@@ -554,6 +554,33 @@
             width: 310px;
             height: 217px;
             cursor: pointer;
+            .material-header {
+              width: 300px;
+              height: 34px;
+              color: #E0D7C1;
+              font-size: 20px;
+              font-weight: bold;
+              border-bottom: 1px solid #E5E5E5;
+            }
+            .material-one {
+              border-bottom: 1px solid #E5E5E5;
+              clear: both;
+              .material-left {
+                float: left;
+                color: #4C4C4C;
+                font-size: 15px;
+                // text-align: left;
+                line-height: 26px;
+                padding-left: 5px;
+              }
+              .material-right {
+                float: right;
+                color: #4C4C4C;
+                font-size: 15px;
+                line-height: 26px;
+                // text-align: right;
+              }
+            }
           }
         }
       }

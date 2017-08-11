@@ -4,7 +4,7 @@
       %div.number
         %span.left (
         = f.fields_for :recipes do |i|
-          = i.text_field :people, {placeholder:"何人分", class: "number_people"}
+          = i.text_field :people, {placeholder:"何人分", class: "number_people", value:@recipe.people}
           / = text_field_tag :text, nil, placeholder:"何人分", class: "number_people"
         %span )
         %span.example 例) 2人分
