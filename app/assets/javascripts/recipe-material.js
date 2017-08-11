@@ -24,17 +24,19 @@ $(function() {
   }
 
   function materialViewHeader() {
-    var html =  '<div class="material">'+
+    var html =  '<div class="material" id="material">'+
                 '<div class="material-header">材料</div>'+
                 '</div>';
     return html;
   }
-  function materialViewBody(material) {
+  function materialViewBody(n, q) {
     var html =  '<div class="material-one">'+
                 '<div class="material-left">'+
-                material[1].name+
+                n[1].name+
                 '</div>'+
-                '<div class="material-right">111</div>'+
+                '<div class="material-right">'+
+                q[1].quantity+
+                '</div>'+
                 '</div>';
     return html;
   }
@@ -59,16 +61,18 @@ $(function() {
         dataType: 'json',
       })
       .done(function(json){
-        console.log("aaaaaaaaaa");
         $('#material').remove();
+
         var html = materialViewHeader();
         $(".recipe-main__top--right--catch-copy").append(html);
         html = "";
-        console.log("tttttttt");
-        json.recipes.forEach(function(m) {
-          html += materialViewBody(m);
-          console.log(m);
-        });
+        for (var i = 0; i < json.names.length; i++) {
+          html += materialViewBody(json.names[i], json.quantities[i]);
+        }
+        console.log(json.names.length)
+        // json.names.forEach(function(m) {
+        //   html += materialViewBody(m);
+        // });
         $(".material").append(html);
         $("#material-setting").fadeOut();
       })

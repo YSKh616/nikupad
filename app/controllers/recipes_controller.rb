@@ -70,9 +70,10 @@ class RecipesController < ApplicationController
       # binding.pry
     end
     lines.each do |line|
-      records << Material.new(name: line[:name], quantity: line[:quantity])
+      records << Material.new(name: line[:name], quantity: line[:quantity], recipe_id: @recipe.id)
       # binding.pry
     end
+    Material.where(recipe_id: @recipe.id).delete_all
     Material.import records
     respond_to do |format|
       format.html { redirect_to action: :edit, id: @recipe.id }
