@@ -13,26 +13,36 @@
         %div.header__quantity 分量
       %ul.all-material
         = f.fields_for 'materials[]', @material do |material|
-          %li.one-material
-            = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
-            / = form_tag do
-            = material.text_field :name, {placeholder:"例) 豚肉", class: "material_form"}
-            = material.text_field :quantity, {placeholder:"例) 350g", class: "quantity_form"}
-            = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
-          %li.one-material
-            = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
-            / = form_tag do
-            = material.text_field :name, {placeholder:"例) にんじん", class: "material_form"}
-            = material.text_field :quantity, {placeholder:"例) 1本", class: "quantity_form"}
-            = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
-          %li.one-material
-            = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
-            / = form_tag do
-            = material.text_field :name, {placeholder:"例) 大根", class: "material_form"}
-            = material.text_field :quantity, {placeholder:"例) 1/2本", class: "quantity_form"}
-            = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+          - if @recipe.materials.present?
+            - @recipe.materials.each do |one|
+              %li.one-material
+                = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+                / = form_tag do
+                = material.text_field :name, {class: "material_form", value: "#{one[:name]}"}
+                = material.text_field :quantity, {class: "quantity_form", value: "#{one[:quantity]}"}
+                = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+          - else
+            / - binding.pry
+            %li.one-material
+              = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+              / = form_tag do
+              = material.text_field :name, {placeholder:"例) 豚肉", class: "material_form"}
+              = material.text_field :quantity, {placeholder:"例) 350g", class: "quantity_form"}
+              = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+            %li.one-material
+              = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+              / = form_tag do
+              = material.text_field :name, {placeholder:"例) にんじん", class: "material_form"}
+              = material.text_field :quantity, {placeholder:"例) 1本", class: "quantity_form"}
+              = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
+            %li.one-material
+              = image_tag("up_down.png",:width => "24",:height => "24",:alt => "up_down", class:"up_down")
+              / = form_tag do
+              = material.text_field :name, {placeholder:"例) 大根", class: "material_form"}
+              = material.text_field :quantity, {placeholder:"例) 1/2本", class: "quantity_form"}
+              = image_tag("batsu_off.png",:width => "19",:height => "19",:alt => "batsu", class:"batsu")
       %div.add-line
-        = submit_tag "行を追加する", class: "add-line-button"
+        = f.submit "行を追加する", class: "add-line-button"
       %div.material-footer
         %div.material-footer__save
           = f.submit "保存して閉じる", class: "save-button", id: "save-material"

@@ -15,8 +15,8 @@ $(function() {
     var html =  '<li class="one-material">'+
                 '<img src="/images/up_down.png", class="up_down", width="24", height="24"></img>'+
                 '<form>'+
-                '<input type="text", name="text", class="material_form">'+
-                '<input type="text", name="text", class="quantity_form">'+
+                '<input type="text" name="material[materials][][name]" class="material_form">'+
+                '<input type="text" name="material[materials][][quantity]" class="quantity_form">'+
                 '</form>'+
                 '<img src="/images/batsu_off.png", class="batsu", width="19", height="19"></img>'+
                 '</li>';
@@ -96,7 +96,8 @@ $(function() {
     handle: '.up_down',
   });
 
-  $(".add-line").on("click", ".add-line-button", function(){
+  $(".add-line").on("click", ".add-line-button", function(e){
+    e.preventDefault();
     var material = materialAdd();
     $(".all-material").append(material);
   });
