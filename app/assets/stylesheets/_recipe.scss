@@ -494,6 +494,9 @@
           // background-color: green;
           float: left;
           cursor: pointer;
+          .image-upload {
+            display: none;
+          }
         }
         &--right {
           margin-top: 10px;

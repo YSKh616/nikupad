@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170808041138) do
   create_table "recipes", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.text     "catch_copy", limit: 65535
-    t.string   "image",      limit: 255
+    t.binary   "image",      limit: 65535
     t.text     "point",      limit: 65535
     t.text     "background", limit: 65535
     t.integer  "user_id",    limit: 4

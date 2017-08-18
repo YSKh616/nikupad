@@ -2,7 +2,7 @@
 %div.covered
   =render 'upper'
   %div.contents
-    = form_for @recipe, url: "/recipes/new" do |f|
+    = form_for @recipe, url: "/recipes/new", html: { id: "recipe-registration", multipart: true, remote: true} do |f|
       %div.recipe-main
         %div.recipe-main__top
           %div.recipe-main__top--link
@@ -16,7 +16,12 @@
             -else
               %span#recipe-title-form タイトルを入力してください
           %div.recipe-main__top--image
-            = image_tag("blank.png",:width => "280",:height => "383",:alt => "blank")
+            - if (@recipe.image).present?
+              = image_tag(avatar_for_recipe_path,:width => "280",:max_height => "383",:alt => "blank")
+            -else
+              = f.label :image do
+                = f.file_field :image, class:"image-upload"
+                = image_tag("blank.png",:width => "280",:height => "383",:alt => "blank")
           %div.recipe-main__top--right
             %div.recipe-main__top--right--catch-copy
               %div.catch-copy#catch-copy
