@@ -15,17 +15,76 @@ $(function() {
     var html =  '<li class="one-material">'+
                 '<img src="/images/up_down.png", class="up_down", width="24", height="24"></img>'+
                 '<form>'+
-                '<input type="text", name="text", class="material_form">'+
-                '<input type="text", name="text", class="quantity_form">'+
+                '<input type="text" name="material[materials][][name]" class="material_form">'+
+                '<input type="text" name="material[materials][][quantity]" class="quantity_form">'+
                 '</form>'+
                 '<img src="/images/batsu_off.png", class="batsu", width="19", height="19"></img>'+
                 '</li>';
     return html;
   }
 
+  function materialViewHeader(data) {
+    var html =  '<div class="material" id="material">'+
+                '<div class="material-header">'+
+                '<span>材料</span>'+
+                '<span class="material-people">('+
+                data.people+
+                ')</span>'+
+                '</div>'+
+                '</div>';
+    return html;
+  }
+  function materialViewBody(n, q) {
+    var html =  '<div class="material-one">'+
+                '<div class="material-left">'+
+                n[1].name+
+                '</div>'+
+                '<div class="material-right">'+
+                q[1].quantity+
+                '</div>'+
+                '</div>';
+    return html;
+  }
+
+
   $(".recipe-main__top--right--catch-copy").on("click", "#material", function(){
     modalResize();
     $("#material-setting").fadeIn(100);
+    $("#save-material").on("click", function(e) {
+      e.preventDefault();
+      var people = $('input[name="material[recipes][people]"]').serializeArray();
+      var name = $('input[name="material[materials][][name]"]').serializeArray();
+      var quantity = $('input[name="material[materials][][quantity]"]').serializeArray();
+      // console.log(people);
+      // console.log(name);
+      // console.log(quantity);
+      var material = [people, name, quantity];
+      $.ajax({
+        type: 'POST',
+        url: location.href,
+        data: {material: material},
+        dataType: 'json',
+      })
+      .done(function(json){
+        $('#material').remove();
+
+        var html = materialViewHeader(json);
+        $(".recipe-main__top--right--catch-copy").append(html);
+        html = "";
+        for (var i = 0; i < json.names.length; i++) {
+          html += materialViewBody(json.names[i], json.quantities[i]);
+        }
+        console.log(json.names.length)
+        // json.names.forEach(function(m) {
+        //   html += materialViewBody(m);
+        // });
+        $(".material").append(html);
+        $("#material-setting").fadeOut();
+      })
+      .fail(function(){
+        window.alert('aaaa');
+      })
+    })
   });
 
   $(".example").click(function(){
@@ -37,7 +96,8 @@ $(function() {
     handle: '.up_down',
   });
 
-  $(".add-line").on("click", ".add-line-button", function(){
+  $(".add-line").on("click", ".add-line-button", function(e){
+    e.preventDefault();
     var material = materialAdd();
     $(".all-material").append(material);
   });

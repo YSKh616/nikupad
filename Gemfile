@@ -62,3 +62,7 @@ gem 'devise'
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
 gem 'pry-rails'
+gem 'activerecord-import'
+gem 'carrierwave'
+gem 'rmagick'
+

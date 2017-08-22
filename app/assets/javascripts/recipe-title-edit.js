@@ -5,12 +5,20 @@ $(function() {
                 '<span id="str-limit">20</span>'+
                 '文字</p>'+
                 '<form id="title-edit">'+
-                '<input name="value" class="title-form">'+
-                '<button class="edit-button" type="submit">保存</button>'+
+                '<input name="recipe[title]" class="title-form">'+
+                '<button id="edit-button" class="edit-button" type="submit">保存</button>'+
                 '<span id="cancel"> 取消'+
                '</form>';
     return html;
   }
+
+  function titleDisplay(data) {
+    var html =  '<span id="recipe-title-form">'+
+                data.title+
+                '</span>';
+    return html;
+  }
+
 
   function editCss() {
     $("#recipe-title").css('line-height', '12px');
@@ -48,6 +56,32 @@ $(function() {
       $("#recipe-title").append(oldTitle);
       returnCss();
     });
+
+    $('#edit-button').on("click", function(e) {
+      e.preventDefault();
+      var form = $('.title-form').val();
+      $.ajax({
+        type: 'PATCH',
+        url: location.href,
+        data: {title: form},
+        dataType: 'json',
+      })
+      .done(function(data){
+        // $('.title-form').val('');
+        $('#str-count').remove();
+        $('#str-limit').remove();
+        $('#title-edit').remove();
+        // console.log(data);
+        var html = titleDisplay(data);
+        $(".recipe-main__top--title").append(html);
+        returnCss();
+      })
+      .fail(function(){
+        window.alert('aaaa');
+      })
+    });
   });
+
+  
 
 });

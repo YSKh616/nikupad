@@ -6,10 +6,17 @@ $(function() {
                 '<span id="str-limit">120</span>'+
                 '文字</p>'+
                 '<form id="title-edit">'+
-                '<textarea name="value" class="background-form"></textarea>'+
-                '<button class="edit-button" type="submit">保存</button>'+
+                '<textarea name="recipe[background]" class="background-form"></textarea>'+
+                '<button id="background-edit-button" type="submit">保存</button>'+
                 '<span id="cancel"> 取消'+
                '</form>';
+    return html;
+  }
+
+  function backgroundDisplay(data) {
+    var html =  '<div class="recipe-background" title="add">'+
+                data.background+
+                '</div>';
     return html;
   }
 
@@ -30,14 +37,14 @@ $(function() {
   );
 
   $("#background").on("click", ".recipe-background", function(){
-    oldBackground = $("#background").children('span');
+    oldBackground = $("#background").children();
     var background = backgroundEdit();
     $(".recipe-background").remove();
     $("#background").append(background);
     // $(".background").css('height', '100px');
     $(".background").css('background-color', 'white');
     $(".recipe-main__memo").css("height", "220px");
-    $(".recipe-main").css("height", "880px");
+    // $(".recipe-main").css("height", "880px");
     $(".background").css('height', '200px');
     // $(".recipe-main__memo").css("line-height", "10px;")
     formFlag = 1;
@@ -57,10 +64,34 @@ $(function() {
       // $(".catch-copy:hover").css('background-color', '#ffff99');
       $("#background").append(oldBackground);
       $(".recipe-main__memo").css("height", "143px");
-      $(".recipe-main").css("height", "800px");
+      // $(".recipe-main").css("height", "800px");
       formFlag = 0;
       $(".recipe-background").css('background-color', 'white');
       $(".background").css('height', '');
+    });
+
+    $('#background-edit-button').on("click", function(e) {
+      e.preventDefault();
+      var form = $('.background-form').val();
+      console.log(form);
+      $.ajax({
+        type: 'PATCH',
+        url: location.href,
+        data: {background: form},
+        dataType: 'json',
+      })
+      .done(function(data){
+        // $('.title-form').val('');
+        $('#str-count').remove();
+        $('#str-limit').remove();
+        $('#title-edit').remove();
+        // console.log(data);
+        var html = backgroundDisplay(data);
+        $("#background").append(html);
+      })
+      .fail(function(){
+        window.alert('aaaa');
+      })
     });
 
   });
