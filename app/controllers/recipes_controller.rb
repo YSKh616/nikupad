@@ -5,38 +5,25 @@ class RecipesController < ApplicationController
     @user = current_user
   end
 
-  # def new
-  #   @user = current_user
-  #   # - binding.pry
-  #   @recipe = Recipe.find(38)
-  #   # @recipe = Recipe.find(params[:id])
-  # end
-
   def create
     @recipe = Recipe.new()
     @user = current_user
     @recipe.user_id = @user.id
     @recipe.save
-    # - binding.pry
+    method_create(4, @recipe.id)
     redirect_to action: :edit, id: @recipe.id
   end
 
   def edit
     @user = current_user
     @material = Material.new
-    # @material = (1..3).map do
-    #   Material.new
-    # end
-    # @material = []
-    # @recipe = Recipe.find(42)
     @recipe = Recipe.find(params[:id])
+    @methods = CookingMethod.where(recipe_id: @recipe.id)
+    # binding.pry
   end
 
   def update
     @recipe = Recipe.find(params[:id])
-    # f = Tempfile.open(params.require(:recipe).permit(:image))
-    # binding.pry
-    # binding.pry
     if (params[:title].present?) then
       @recipe.update(title: params[:title])
     elsif (params[:catch_copy].present?) then
@@ -57,28 +44,21 @@ class RecipesController < ApplicationController
   end
 
   def material_create
-    # @material = Material.new
-    # binding.pry
     @recipe = Recipe.find(params[:id])
-    # binding.pry
     @materials = params.require(:material)
-    # binding.pry
     @recipe.update(people: @materials["0"]["0"][:value])
     @name = @materials["1"]
     @quantity = @materials["2"]
     records = []
     lines = []
-    # binding.pry
     for i in 0..(@materials["1"].length - 1) do
       material ={}
       material[:name] = @materials["1"]["#{i}"][:value]
       material[:quantity] = @materials["2"]["#{i}"][:value]
       lines << material
-      # binding.pry
     end
     lines.each do |line|
       records << Material.new(name: line[:name], quantity: line[:quantity], recipe_id: @recipe.id)
-      # binding.pry
     end
     Material.where(recipe_id: @recipe.id).delete_all
     Material.import records
@@ -88,9 +68,45 @@ class RecipesController < ApplicationController
     end
   end
 
+  def method_create(num, recipe_id)
+    methods = []
+    i = 1
+    num.times do
+      methods << CookingMethod.new(recipe_id: recipe_id, number: i)
+      i = i + 1
+    end
+    CookingMethod.import methods
+  end
+
+  def method_update
+    # binding.pry
+    @recipe = Recipe.find(params[:id])
+    @method = CookingMethod.where("(recipe_id = ?) AND (number = ?)", @recipe.id, params[:num])
+    if (params[:body].present?) then
+      @method[0].update(body: params[:body])
+    else
+      if (params[:recipe][:cooking_method][:image_1].present?) then
+        image = Magick::ImageList.new(params[:recipe][:cooking_method][:image_1].path)
+        @method[0].update(image: image.to_blob)
+      elsif (params[:recipe][:cooking_method][:image_2].present?) then
+        image = Magick::ImageList.new(params[:recipe][:cooking_method][:image_2].path)
+        @method[0].update(image: image.to_blob)
+      elsif (params[:recipe][:cooking_method][:image_3].present?) then
+        image = Magick::ImageList.new(params[:recipe][:cooking_method][:image_3].path)
+        @method[0].update(image: image.to_blob)
+      elsif (params[:recipe][:cooking_method][:image_4].present?) then
+        image = Magick::ImageList.new(params[:recipe][:cooking_method][:image_4].path)
+        @method[0].update(image: image.to_blob)
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to action: :edit, id: @recipe.id }
+      format.json
+    end
+  end
+
   def avatar_for
     @recipe = Recipe.find(params[:id])
-    # binding.pry
     send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 

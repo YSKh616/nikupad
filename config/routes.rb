@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   patch 'recipes/:id' => 'recipes#update'
   # resources :materials, only: [:new, :create]
   post 'recipes/:id' => 'recipes#material_create'
+  post 'recipes/:id/method' => 'recipes#method_create'
+  patch 'recipes/:id/method' => 'recipes#method_update'
 end

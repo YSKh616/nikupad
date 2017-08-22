@@ -44,7 +44,7 @@ $(function() {
     $(".point").css('height', '100px');
     $(".point").css('background-color', 'white');
     $(".recipe-main__memo").css("height", "205px");
-    $(".recipe-main").css("height", "860px");
+    // $(".recipe-main").css("height", "860px");
     // $(".recipe-main__memo").css("line-height", "10px;")
     formFlag = 1;
 
@@ -63,7 +63,7 @@ $(function() {
       // $(".catch-copy:hover").css('background-color', '#ffff99');
       $("#point").append(oldPoint);
       $(".recipe-main__memo").css("height", "143px");
-      $(".recipe-main").css("height", "800px");
+      // $(".recipe-main").css("height", "800px");
       formFlag = 0;
       $("#recipe-point").css('background-color', 'white');
     });

@@ -426,7 +426,8 @@
     .recipe-main {
       margin-bottom: 60px;
       width: 650px;
-      height: 800px;
+      // height: 800px;
+      height: 100%;
       background-color: white;
       float: left;
       border-radius: 5px;
@@ -593,14 +594,18 @@
           }
         }
       }
+      // &__cooking-method {
+      //   margin: 0 auto;
+      //   width: 608px;
+      //   height: 125px;
+      // }
       &__cooking-method {
         margin: 0 auto;
         width: 608px;
-        height: 125px;
-      }
-      &__cooking-method {
+        height: 100%;
         .all-method {
           margin:0px;
+          height: 100%;
           padding:0px;
           display: -webkit-flex;
           display: flex;
@@ -608,7 +613,8 @@
           justify-content: space-between;
           li {
             width: 137px;
-            height: 125px;
+            // height: 125px;
+            height: 100%;
             list-style: none;
             .header {
               width: 136px;
@@ -640,16 +646,43 @@
             }
             .image {
               width: 136px;
-              height: 27px;
+              // height: 27px;
+              height: 100%;
               color: #999;
               font-size: 12px;
+              .method-image-upload {
+                display: none;
+              }
             }
             .method {
               width: 136px;
-              height: 27px;
+              // height: 27px;
+              height: 100%;
               color: #999;
               font-size: 12px;
               // line-height: 8px;
+              .cooking_method-form {
+                height: 100px;
+                width: 130px;
+                background: #ffffd3;
+                font-size: 14px;
+              }
+              #str-count {
+                margin:0;
+                padding: 0;
+                color: #666;
+                font-size: 10px;
+              }
+              #cancel {
+                color: #330000;
+                font-size: 14px;
+                cursor: pointer;
+                text-decoration: underline;
+              }
+              #recipe-method-text {
+                color: black;
+                font-size: 14px;
+              }
             }
           }
         }
@@ -657,9 +690,11 @@
       &__memo {
         margin: 0 auto;
         width: 608px;
-        height: 143px;
+        // height: 143px;
+        height: 100%;
         line-height: 4px;
         .point {
+          height: 100%;
           float: left;
           width: 300px;
           line-height: 12px;
@@ -758,9 +793,10 @@
         }
       }
       &__id-date {
+        clear: both;
         margin: 0 auto;
         width: 608px;
-        height: 22px;
+        height: 100%;
         text-align: right;
         span {
           color: #999999;

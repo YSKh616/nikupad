@@ -20,7 +20,7 @@
     %div.upper__mynews--name MYニュース
   %div.upper__write-recipe
     - if user_signed_in?
-      = form_tag({action: :create}) do
+      = form_tag({controller: :recipes, action: :create}) do
         = submit_tag "レシピを書く", class: "recipe-button"
       / = link_to new_recipe_path do
       /   %span.recipe-button レシピを書く
