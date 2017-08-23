@@ -22,7 +22,7 @@ $(function() {
   }
 
 
-  $(".method").on("click", ".recipe-method", function(){
+  $(".method").on("click", ".recipe-method, #recipe-method-text", function(){
     oldMethod = $(this).prop('outerHTML');
     form_num = $(this).parents(".method").siblings(".header").children('.num').text();
     var cooking_method = cooking_methodEdit();

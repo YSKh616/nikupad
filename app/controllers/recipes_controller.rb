@@ -110,6 +110,12 @@ class RecipesController < ApplicationController
     send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 
+  def avatar_method_for
+    # binding.pry
+    @method = CookingMethod.find(params[:num])
+    send_data(@method.image, :type => 'image/jpeg', :disposition => 'inline')
+  end
+
   private
 
   def recipe_params

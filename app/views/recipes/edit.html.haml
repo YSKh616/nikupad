@@ -54,11 +54,14 @@
                 %span.delete 削除
                 %span.add 追加
               %div.image
-                = f.fields_for @methods[0] do |c|
-                  = c.label :image_1 do
-                    = c.file_field :image_1, class:"method-image-upload image1"
-                    %span 写真をのせる
-                    = c.hidden_field :num, value:"1"
+                - if (@recipe.cookingMethods[0].image).present?
+                  = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[0]),:width => "136px",:height => "107px",:alt => "blank")
+                -else
+                  = f.fields_for @methods[0] do |c|
+                    = c.label :image_1 do
+                      = c.file_field :image_1, class:"method-image-upload image1"
+                      %span 写真をのせる
+                      = c.hidden_field :num, value:"1"
               %div.method
                 - if (@recipe.cookingMethods[0].body.present?)
                   %span#recipe-method-text= @recipe.cookingMethods[0].body
@@ -72,11 +75,14 @@
                 %span.delete 削除
                 %span.add 追加
               %div.image
-                = f.fields_for @methods[1] do |c|
-                  = c.label :image_2 do
-                    = c.file_field :image_2, class:"method-image-upload image2"
-                    %span 写真をのせる
-                    = c.hidden_field :num, value:"2"
+                - if (@recipe.cookingMethods[1].image).present?
+                  = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[0]),:width => "136px",:height => "107px",:alt => "blank")
+                - else
+                  = f.fields_for @methods[1] do |c|
+                    = c.label :image_2 do
+                      = c.file_field :image_2, class:"method-image-upload image2"
+                      %span 写真をのせる
+                      = c.hidden_field :num, value:"2"
               %div.method
                 - if (@recipe.cookingMethods[1].body.present?)
                   %span#recipe-method-text= @recipe.cookingMethods[1].body
@@ -90,11 +96,14 @@
                 %span.delete 削除
                 %span.add 追加
               %div.image
-                = f.fields_for @methods[2] do |c|
-                  = c.label :image_3 do
-                    = c.file_field :image_3, class:"method-image-upload image3"
-                    %span 写真をのせる
-                    = c.hidden_field :num, value:"3"
+                - if (@recipe.cookingMethods[2].image).present?
+                  = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[2]),:width => "136px",:height => "107px",:alt => "blank")
+                - else
+                  = f.fields_for @methods[2] do |c|
+                    = c.label :image_3 do
+                      = c.file_field :image_3, class:"method-image-upload image3"
+                      %span 写真をのせる
+                      = c.hidden_field :num, value:"3"
               %div.method
                 - if (@recipe.cookingMethods[2].body.present?)
                   %span#recipe-method-text= @recipe.cookingMethods[2].body
@@ -108,11 +117,14 @@
                 %span.delete 削除
                 %span.add 追加
               %div.image
-                = f.fields_for @methods[3] do |c|
-                  = c.label :image_4 do
-                    = c.file_field :image_4, class:"method-image-upload image4"
-                    %span 写真をのせる
-                    = c.hidden_field :num, value:"4"
+                - if (@recipe.cookingMethods[3].image).present?
+                  = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[3]),:width => "136px",:height => "107px",:alt => "blank", class: "method_image")
+                - else
+                  = f.fields_for @methods[3] do |c|
+                    = c.label :image_4 do
+                      = c.file_field :image_4, class:"method-image-upload image4"
+                      %span 写真をのせる
+                      = c.hidden_field :num, value:"4"
               %div.method
                 - if (@recipe.cookingMethods[3].body.present?)
                   %span#recipe-method-text= @recipe.cookingMethods[3].body
@@ -134,9 +146,9 @@
               %span.recipe-background 例）母から教わったレシピを、家族が好む甘めの味付けにアレンジしました
               %span.recipe-background 例）○○番組で紹介されたレシピを、家にある材料で簡単に作れるよう工夫しました
         %div.recipe-main__id-date
-          %span レシピID : 4639067
+          %span= "レシピID : #{@recipe.id}"
           %span 公開日 : 未公開
-          %span 更新日 : 17/07/26
+          %span= "更新日 : #{@recipe.updated_at.in_time_zone('Tokyo').strftime('%Y/%m/%d')}"
       %div.right-contents
         %div.writing-method
           %div.title
