@@ -76,7 +76,7 @@
                 %span.add 追加
               %div.image
                 - if (@recipe.cookingMethods[1].image).present?
-                  = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[0]),:width => "136px",:height => "107px",:alt => "blank")
+                  = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[1]),:width => "136px",:height => "107px",:alt => "blank")
                 - else
                   = f.fields_for @methods[1] do |c|
                     = c.label :image_2 do
