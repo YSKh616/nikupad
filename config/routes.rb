@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :create] do
     member do
       get 'avatar_for'
+      get 'avatar_method_for'
     end
   end
   resources :users, only: [:edit]
