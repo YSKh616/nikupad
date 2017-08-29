@@ -9,7 +9,8 @@
           %div.header__right--menulist--user
             = image_tag("profile.png",:width => "24",:height => "24",:alt => "profile")
             - if user_signed_in?
-              %div.header__right--menulist--user--name= @user.name
+              %div.header__right--menulist--user--name
+                = link_to "#{@user.name}", user_path(@user.id), method: :get
             - else
               %div.header__right--menulist--user--new
                 = link_to new_user_registration_path, {class:"registration", method: :get} do

@@ -106,7 +106,14 @@ class RecipesController < ApplicationController
   end
 
   def avatar_for
+    # binding.pry
     @recipe = Recipe.find(params[:id])
+    send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
+  end
+
+  def avatar_for_user
+    # binding.pry
+    @recipe = Recipe.where(id: params[:recipe_id])
     send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 

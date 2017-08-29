@@ -1,0 +1,53 @@
+=render './recipes/header'
+%div.covered
+  =render partial:'./recipes/upper', locals: { user: @user }
+  %div.mypage
+    %div.header
+      = link_to user_path(@user.id), {method: :get} do
+        %span.left= "#{@user.name}のキッチン"
+      %span.right フォロワー: 0人
+    %div.user-recipes
+      %div.kitchen-left
+        %div.title カテゴリ
+        %ul.kitchen-category
+          %li
+            %span.category-name すべて
+            %span.count (0)
+      %div.kitchen-right
+        - @recipes.each do |recipe|
+          %div.recipe-show
+            %div.recipe-image
+              = image_tag(avatar_for_user_user_path(recipe_id: recipe.id),:alt => "profile", :class => "cookImage")
+            %div.recipe-text
+              = link_to "/recipes/#{recipe.id}" do
+                %div.recipe-title= recipe.title
+              %div.recipe-catchcopy= recipe.catch_copy
+              %div.recipe-material
+                %span 材料: 
+                %span aaaaa
+  = render './recipes/footer'
+%div.sidebar
+  %div.sidebar__title
+    %span 最近見たレシピ
+  %div.sidebar__history
+
+= render './recipes/setting'
+
+
+/ %ul#sb-slider.sb-slider
+/   %li
+/     = image_tag("profile.png",:width => "300",:height => "300",:alt => "profile")
+/   %li
+/     = image_tag("niku.jpg",:width => "300",:height => "300",:alt => "profile")
+/   %li
+/     = image_tag("book.png",:width => "300",:height => "300",:alt => "profile")
+/   %li
+/     = image_tag("star.jpeg",:width => "300",:height => "300",:alt => "profile")
+/   %li
+/     = image_tag("au_cake.jpg",:width => "300",:height => "300",:alt => "profile")
+/ %div#shadow.shadow
+/   %div#nav-arrows.nav-arrows
+/     = link_to '#' do
+/       = image_tag("left_arrow.jpeg",:width => "42",:height => "42", class: "left_arrow")
+/     = link_to '#' do
+/       = image_tag("right_arrow.jpeg",:width => "42",:height => "42", class: "right_arrow")

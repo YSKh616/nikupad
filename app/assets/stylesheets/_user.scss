@@ -65,7 +65,7 @@ h2 {
 
 .mypage {
   width:700px;
-  height: 180px;
+  height: 100%;
   background-color: white;
   margin-left: 140px;
   .header {
@@ -154,6 +154,80 @@ h2 {
       }
     }
   }
+  .user-recipes {
+  width:700px;
+  height: 100%;
+  background-color: white;
+  @include clearfix;
+  .kitchen-left {
+    float:left;
+    .title {
+      width: 150px;
+      margin-left: 25px;
+      color: #C1C1A6;
+      border-bottom: 1px solid
+    }
+    .kitchen-category {
+      color: #845f4b;
+      margin:0 0 0 25px;
+      padding: 0;
+      list-style: none;
+      .category-name {
+        color: #845f4b;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .count {
+        color: #999;
+        font-size: 12px;
+      }
+    }
+  }
+  .kitchen-right {
+    float: left;
+    // background-color: red;
+    width: 470px;
+    height: 100%;
+    .recipe-show {
+      clear: both;
+      padding-top: 10px;
+      margin-left: 15px;
+      .recipe-image {
+        float: left;
+        width: 100px;
+        height: 141px;
+        padding-bottom: 20px;
+        // overflow: hidden;
+        position: relative;
+        .cookImage {
+          width: 100px;
+          height: 141px;
+          object-fit: cover;
+        }
+      }
+      .recipe-text {
+        padding: 5px 0 0 10px;
+        float: left;
+        width: 330px;
+        height: 100%;
+        .recipe-title {
+          color: #889b00;
+          font-weight: bold;
+          font-size: 18px;
+          text-decoration: underline;
+        }
+        .recipe-catchcopy {
+          color: #808080;
+          // clear: both;
+        }
+        .recipe-material {
+          color: #cfaa80;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
 }
 
 .edit-username {
@@ -252,6 +326,8 @@ h2 {
     }
   }
 }
+
+
 
 
 
