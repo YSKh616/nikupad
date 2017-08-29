@@ -1,0 +1,153 @@
+=render 'header'
+%div.covered
+  =render 'upper'
+  %div.recipe-contents
+    = form_for @recipe, url: "/recipes/new", html: { id: "recipe-registration", multipart: true, remote: true} do |f|
+      = f.hidden_field :id, value:"#{@recipe.id}", class:"id_number"
+      %div.show-recipe-main
+        %div.show-recipe-main__top
+          %div.show-recipe-main__top--link
+            %div.user-name
+              %span= "«#{@user.name}のレシピ"
+            %div.delete
+              %span 削除
+          %div.show-recipe-main__top--title
+            %span= @recipe.title
+          %div.show-recipe-main__top--image
+            = image_tag(avatar_for_recipe_path,:width => "280",:max_height => "383",:alt => "blank")
+          %div.show-recipe-main__top--right
+            %div.show-recipe-main__top--right--catch-copy
+              %div.catch-copy
+                %span#recipe-catchcopy-text= @recipe.catch_copy
+              %div.author
+                %span= @user.name
+              %div.material
+                %div.material-header
+                  %span 材料
+                  %span.material-people= "(#{@recipe.people})"
+                - @recipe.materials.each do |material|
+                  %div.material-one
+                    %div.material-left= "#{material.name}"
+                    %div.material-right= "#{material.quantity}"
+        %div.show-recipe-main__cooking-method
+          %ul.all-method
+            %li.cook-method
+              %div.header
+                %span.num 1
+                %span.left ←
+                %span.right →
+                %span.delete 削除
+                %span.add 追加
+              %div.image
+                = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[0]),:width => "136px",:height => "107px",:alt => "blank")
+              %div.method
+                %span#recipe-method-text= @recipe.cookingMethods[0].body
+            %li.cook-method
+              %div.header
+                %span.num 2
+                %span.left ←
+                %span.right →
+                %span.delete 削除
+                %span.add 追加
+              %div.image
+                = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[1]),:width => "136px",:height => "107px",:alt => "blank")
+              %div.method
+                %span#recipe-method-text= @recipe.cookingMethods[1].body
+            %li.cook-method
+              %div.header
+                %span.num 3
+                %span.left ←
+                %span.right →
+                %span.delete 削除
+                %span.add 追加
+              %div.image
+                = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[2]),:width => "136px",:height => "107px",:alt => "blank")
+              %div.method
+                %span#recipe-method-text= @recipe.cookingMethods[2].body
+            %li.cook-method
+              %div.header
+                %span.num 4
+                %span.left ←
+                %span.right →
+                %span.delete 削除
+                %span.add 追加
+              %div.image
+                = image_tag(avatar_method_for_recipe_path(num: @recipe.cookingMethods[3]),:width => "136px",:height => "107px",:alt => "blank", class: "method_image")
+              %div.method
+                %span#recipe-method-text= @recipe.cookingMethods[3].body
+        %div.show-recipe-main__memo
+          %div.point
+            %h3 コツ・ポイント
+            %div#recipe-point{title:"add"}= @recipe.point
+          %div.background
+            %h3 このレシピの生い立ち
+            %div.recipe-background{title:"add"}= @recipe.background
+        %div.show-recipe-main__id-date
+          %span= "レシピID : #{@recipe.id}"
+          %span 公開日 : 未公開
+          %span= "更新日 : #{@recipe.updated_at.in_time_zone('Tokyo').strftime('%Y/%m/%d')}"
+      %div.right-contents
+        %div.writing-method
+          %div.title
+            %div.left
+              %span レシピの書き方
+            %div.right
+              %span サンプルはこちら
+          %div.table
+            %table.method
+              %tr#writing-title
+                %th
+                  %i.fa.fa-angle-down
+                %td
+                  レシピのタイトル
+                  / %div.description
+                  /   aaaaa
+              %tr#writing-image
+                %th
+                  %i.fa.fa-angle-down
+                %td
+                  レシピの写真
+              %tr#writing-introduction
+                %th
+                  %i.fa.fa-angle-down
+                %td
+                  レシピの紹介文
+              %tr#writing-material
+                %th
+                  %i.fa.fa-angle-down
+                %td
+                  材料・分量
+              %tr#writing-method
+                %th
+                  %i.fa.fa-angle-down
+                %td
+                  作り方
+              %tr#writing-point
+                %th
+                  %i.fa.fa-angle-down
+                %td
+                  コツ、ポイント
+              %tr#writing-background
+                %th.last
+                  %i.fa.fa-angle-down
+                %td.last
+                  レシピの生い立ち
+          %div.release
+            %div.tag
+              / タグリストを後に追加
+              %div.new-tag
+                %span ＋新規カテゴリを追加
+            %div.button
+              = submit_tag "レシピを公開する", class: "release-button"
+
+
+  = render 'footer'
+
+%div.sidebar
+  %div.sidebar__title
+    %span 最近見たレシピ
+  %div.sidebar__history
+
+= render 'setting'
+
+= render partial:'./materials/material', locals: { material: @material, recipe: @recipe}

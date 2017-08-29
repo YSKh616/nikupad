@@ -126,6 +126,13 @@ class RecipesController < ApplicationController
     send_data(@method.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+    @user = current_user
+    @material = Material.new
+    @methods = CookingMethod.where(recipe_id: @recipe.id)
+  end
+
   private
 
   def recipe_params
