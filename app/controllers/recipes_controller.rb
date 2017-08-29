@@ -1,8 +1,11 @@
 require 'tempfile'
 require 'RMagick'
+require 'date'
 class RecipesController < ApplicationController
   def index
     @user = current_user
+    @recipe = Recipe.last
+    @date = Date.today
   end
 
   def create
