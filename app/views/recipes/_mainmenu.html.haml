@@ -54,12 +54,12 @@
           %span もっと見る
   %div.mainmenu__today
     %div.mainmenu__today--image
-      = image_tag("sweet.jpg",:width => "447",:height => "251",:alt => "sweet", class: "image")
+      = image_tag(avatar_for_recipe_path(id: @recipe.id ), :width => "447",:height => "251",:alt => "sweet", class: "image")
     %div.mainmenu__today--date
-      %span 7月22日の
+      %span= "#{@date.month}月#{@date.day}日の"
       %span.tiny おすすめ
     %div.mainmenu__today--recipe
-      %span.title どっかのケーキ
-      %span.name YUUUUUUUUUU
+      %span.title= @recipe.title
+      %span.name= @recipe.user.name
   %div.mainmenu__article
-    %span.mainmenu__article--title ニュース
+    %span.mainmenu__article--title

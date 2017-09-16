@@ -1,8 +1,11 @@
 require 'tempfile'
 require 'RMagick'
+require 'date'
 class RecipesController < ApplicationController
   def index
     @user = current_user
+    @recipe = Recipe.last
+    @date = Date.today
   end
 
   def create
@@ -106,7 +109,14 @@ class RecipesController < ApplicationController
   end
 
   def avatar_for
+    # binding.pry
     @recipe = Recipe.find(params[:id])
+    send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
+  end
+
+  def avatar_for_user
+    # binding.pry
+    @recipe = Recipe.where(id: params[:recipe_id])
     send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 
@@ -114,6 +124,13 @@ class RecipesController < ApplicationController
     # binding.pry
     @method = CookingMethod.find(params[:num])
     send_data(@method.image, :type => 'image/jpeg', :disposition => 'inline')
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+    @user = current_user
+    @material = Material.new
+    @methods = CookingMethod.where(recipe_id: @recipe.id)
   end
 
   private
