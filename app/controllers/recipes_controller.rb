@@ -22,7 +22,6 @@ class RecipesController < ApplicationController
     @material = Material.new
     @recipe = Recipe.find(params[:id])
     @methods = CookingMethod.where(recipe_id: @recipe.id)
-    # binding.pry
   end
 
   def update
@@ -36,9 +35,9 @@ class RecipesController < ApplicationController
     elsif (params[:background].present?) then
       @recipe.update(background: params[:background])
     elsif (params[:recipe][:image].present?) then
+      binding.pry
       image = Magick::ImageList.new(params[:recipe][:image].path)
       @recipe.update(image: image.to_blob)
-      # binding.pry
     end
     respond_to do |format|
       format.html { redirect_to action: :edit, id: @recipe.id }
@@ -82,7 +81,6 @@ class RecipesController < ApplicationController
   end
 
   def method_update
-    # binding.pry
     @recipe = Recipe.find(params[:id])
     @method = CookingMethod.where("(recipe_id = ?) AND (number = ?)", @recipe.id, params[:num])
     if (params[:body].present?) then
@@ -109,19 +107,16 @@ class RecipesController < ApplicationController
   end
 
   def avatar_for
-    # binding.pry
     @recipe = Recipe.find(params[:id])
     send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 
   def avatar_for_user
-    # binding.pry
     @recipe = Recipe.where(id: params[:recipe_id])
     send_data(@recipe.image, :type => 'image/jpeg', :disposition => 'inline')
   end
 
   def avatar_method_for
-    # binding.pry
     @method = CookingMethod.find(params[:num])
     send_data(@method.image, :type => 'image/jpeg', :disposition => 'inline')
   end
