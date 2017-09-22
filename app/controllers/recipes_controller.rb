@@ -35,7 +35,6 @@ class RecipesController < ApplicationController
     elsif (params[:background].present?) then
       @recipe.update(background: params[:background])
     elsif (params[:recipe][:image].present?) then
-      binding.pry
       image = Magick::ImageList.new(params[:recipe][:image].path)
       @recipe.update(image: image.to_blob)
     end
